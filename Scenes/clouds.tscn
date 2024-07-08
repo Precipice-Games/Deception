@@ -32,5 +32,6 @@ animations = [{
 }]
 
 [node name="Clouds" type="AnimatedSprite2D"]
+position = Vector2(137, 85)
 sprite_frames = SubResource("SpriteFrames_iu5xk")
 animation = &"Cloud1"
