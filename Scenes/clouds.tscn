@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ou2cl8mhmy13"]
+
+[ext_resource type="Texture2D" uid="uid://ctecn1bufjwuu" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="1_kyarc"]
+[ext_resource type="Texture2D" uid="uid://1ia7b6j4s77g" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 2.png" id="2_c4qqy"]
+[ext_resource type="Texture2D" uid="uid://d0jf18awt33rd" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 3.png" id="3_71ly8"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_iu5xk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_kyarc")
+}],
+"loop": true,
+"name": &"Cloud1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_c4qqy")
+}],
+"loop": true,
+"name": &"Cloud2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_71ly8")
+}],
+"loop": true,
+"name": &"Cloud3",
+"speed": 5.0
+}]
+
+[node name="Clouds" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_iu5xk")
+animation = &"Cloud1"

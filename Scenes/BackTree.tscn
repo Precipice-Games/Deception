@@ -1,0 +1,76 @@
+[gd_scene load_steps=14 format=3 uid="uid://ha8gdesorkd1"]
+
+[ext_resource type="Texture2D" uid="uid://doexgbsqb6wo7" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 01.png" id="1_06tat"]
+[ext_resource type="Texture2D" uid="uid://dkdgnnhhdqfma" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 02.png" id="2_gydlm"]
+[ext_resource type="Texture2D" uid="uid://ds6hxmj4r1hsc" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 03.png" id="3_c5rc6"]
+[ext_resource type="Texture2D" uid="uid://4qbs01yjmptp" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Left 04.png" id="4_m4y7s"]
+[ext_resource type="Texture2D" uid="uid://xgdu5hw72ag1" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 01.png" id="5_pvahg"]
+[ext_resource type="Texture2D" uid="uid://bp1y48ie7cay8" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 02.png" id="6_ff8nj"]
+[ext_resource type="Texture2D" uid="uid://1ben4cbtbpad" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 03.png" id="7_vg4ho"]
+[ext_resource type="Texture2D" uid="uid://bnt4ab8pxc6rb" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Right 04.png" id="8_jw7tv"]
+[ext_resource type="Texture2D" uid="uid://dagkdrk0syeo6" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 01.png" id="9_b2h24"]
+[ext_resource type="Texture2D" uid="uid://u7wrd25m46qv" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 02.png" id="10_hj05o"]
+[ext_resource type="Texture2D" uid="uid://dtq64efb8uxd1" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 03.png" id="11_35x21"]
+[ext_resource type="Texture2D" uid="uid://chkyk17lmj1rg" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 04.png" id="12_wcrm0"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2tl86"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_06tat")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gydlm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_c5rc6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_m4y7s")
+}],
+"loop": true,
+"name": &"LeftTree",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_pvahg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_ff8nj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_vg4ho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_jw7tv")
+}],
+"loop": true,
+"name": &"RightTree",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("9_b2h24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_hj05o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_35x21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_wcrm0")
+}],
+"loop": true,
+"name": &"Tree",
+"speed": 5.0
+}]
+
+[node name="BackTree" type="AnimatedSprite2D"]
+texture_filter = 1
+position = Vector2(425, 381)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_2tl86")
+animation = &"Tree"
+centered = false
