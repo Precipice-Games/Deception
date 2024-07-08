@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://b382cxo6j70yi"]
+[gd_scene load_steps=7 format=3 uid="uid://b382cxo6j70yi"]
 
-[ext_resource type="Texture2D" uid="uid://hj4wrw6avc05" path="res://art/kenney_abstract-platformer/Tilesheet/tilesheet_complete.png" id="1_sghaq"]
-[ext_resource type="Texture2D" uid="uid://oh4vxh5qqvnu" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="2_2qs8d"]
+[ext_resource type="Texture2D" uid="uid://hj4wrw6avc05" path="res://art/kenney_abstract-platformer/Tilesheet/tilesheet_complete.png" id="1_8lbrk"]
+[ext_resource type="Texture2D" uid="uid://oh4vxh5qqvnu" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="2_4raki"]
+[ext_resource type="PackedScene" uid="uid://bp54uo6isb3k7" path="res://Scenes/player.tscn" id="3_jgo8k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_beka0"]
-texture = ExtResource("1_sghaq")
+texture = ExtResource("1_8lbrk")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -1060,7 +1061,7 @@ texture_region_size = Vector2i(64, 64)
 21:11/0/physics_layer_0/polygon_0/points = PackedVector2Array(-32, -32, 32, -32, 32, 32, -32, 32)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xddqp"]
-texture = ExtResource("2_2qs8d")
+texture = ExtResource("2_4raki")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
@@ -1113,8 +1114,8 @@ texture_region_size = Vector2i(64, 64)
 
 [sub_resource type="TileSet" id="TileSet_pvo4f"]
 tile_size = Vector2i(64, 64)
-physics_layer_0/collision_layer = 2
-physics_layer_0/collision_mask = 5
+physics_layer_0/collision_layer = 1
+physics_layer_0/collision_mask = 6
 sources/0 = SubResource("TileSetAtlasSource_beka0")
 sources/1 = SubResource("TileSetAtlasSource_xddqp")
 
@@ -1122,3 +1123,6 @@ sources/1 = SubResource("TileSetAtlasSource_xddqp")
 tile_set = SubResource("TileSet_pvo4f")
 format = 2
 layer_0/tile_data = PackedInt32Array(393218, 131072, 3, 393219, 131072, 3, 393220, 131072, 3, 393221, 131072, 3, 393222, 131072, 3, 262152, 131072, 3, 262153, 131072, 3, 262154, 131072, 3, 393228, 131072, 3, 393229, 131072, 3, 393230, 131072, 3, 393234, 131072, 3, 393235, 131072, 3, 393236, 131072, 3, 393237, 131072, 3, 393238, 131072, 3, 393239, 131072, 3, 393240, 131072, 3, 393241, 131072, 3, 393242, 131072, 3, 393243, 131072, 3, 393244, 131072, 3, 393245, 131072, 3, 393246, 131072, 3, 393247, 131072, 3, 393248, 131072, 3, 393249, 131072, 3, 393250, 131072, 3, 393251, 131072, 3, 393252, 131072, 3, 393253, 131072, 3, 393254, 131072, 3, 393255, 131072, 3, 393256, 262144, 4, 458792, 262144, 5, 458793, 262144, 4, 458791, 0, 0, 458790, 0, 0, 458789, 0, 0, 458788, 0, 0, 458787, 0, 0, 458786, 0, 0, 458785, 0, 0, 458784, 0, 0, 458783, 0, 0, 458782, 0, 0, 458781, 0, 0, 458780, 0, 0, 458779, 0, 0, 655403, 131072, 3, 655404, 131072, 3, 655405, 131072, 3, 852007, 131072, 3, 852006, 131072, 3, 852005, 131072, 3, 1048607, 131072, 3, 1048608, 131072, 3, 1245209, 131072, 3, 1245210, 131072, 3, 1245211, 131072, 3, 1441811, 131072, 3, 1441810, 131072, 3, 1441809, 131072, 3, 1376275, 589824, 2)
+
+[node name="Player" parent="." instance=ExtResource("3_jgo8k")]
+position = Vector2(157, 367)
