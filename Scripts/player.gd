@@ -3,13 +3,13 @@
 #you don't slow down transitioning from dash to sprint when you hit ground.  Also dash not stoping after .2 seconds.  
 #Sprint: Stop delay in speed boost after double tap, 
 #immediately goes to speed acceloration.  Add momentum in air/ground too.  Make speed slow down/accelarate more smoothly.  
-
+#Change position.x for airdash instead of speed.  Horizontal travel same distance every time you air dash.
 extends CharacterBody2D
 
 
 @export var walkSPEED = 300.0
 @export var sprintSPEED =500.0
-@export var airDash = 500
+@export var airDash = 700.0
 @export var JUMP_VELOCITY = -400.0
 var dashing = false
 var SPEED = walkSPEED
@@ -20,6 +20,8 @@ var dash = false
 
 
 func _physics_process(delta):
+	
+	
 	# Add the gravity.
 	var facing_direction = 0
 	if not is_on_floor():
@@ -77,3 +79,7 @@ func _input(event):
 
 func _on_air_dash_timer_timeout():
 	SPEED = walkSPEED
+	
+
+
+
