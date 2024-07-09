@@ -1,8 +1,15 @@
+#Might add: slide speed if there 
+#is time.  More importantly, fix bugs in current stuff.  After dash, doesn't set speed to sprint when hits ground, 
+#you don't slow down transitioning from dash to sprint when you hit ground.  Also dash not stoping after .2 seconds.  
+#Sprint: Stop delay in speed boost after double tap, 
+#immediately goes to speed acceloration.  Add momentum in air/ground too.  Make speed slow down/accelarate more smoothly.  
+
 extends CharacterBody2D
 
 
 @export var walkSPEED = 300.0
-@export var dashSPEED =500.0
+@export var sprintSPEED =500.0
+@export var airDash = 2000
 @export var JUMP_VELOCITY = -400.0
 var dashing = false
 var SPEED = walkSPEED
@@ -14,7 +21,7 @@ var dash = false
 
 func _physics_process(delta):
 	# Add the gravity.
-	var facing_direction =0
+	var facing_direction = 0
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	move_and_slide()
@@ -37,18 +44,22 @@ func _input(event):
 	if dashing==true:
 		return # returning gets out of the function immediately and does not process any of the following code
 
-
+	if event.is_action_pressed("dash") and not is_on_floor():
+		SPEED = airDash
+		$airDashTimer.start(.2)
+		if is_on_floor():
+			SPEED = sprintSPEED
 	if event.is_action_pressed("move_right"):
 		if $GameTimer.is_stopped():
 			print("one press")
 			$GameTimer.start()
 		else:
-			print("dash")
+			print("sprint")
 			dash = true
 			$GameTimer.stop()
-			$dashTimer.start(2)
-			SPEED=dashSPEED
-	if event.is_action_released("move_right") and $dashTimer.is_stopped():
+			$sprintTimer.start(2)
+			SPEED=sprintSPEED
+	if event.is_action_released("move_right") and $sprintTimer.is_stopped():
 		SPEED = walkSPEED
 	if event.is_action_pressed("move_left"):
 		if $GameTimer.is_stopped():
@@ -58,7 +69,11 @@ func _input(event):
 			print("dash")
 			dash = true
 			$GameTimer.stop()
-			$dashTimer.start(2)
-			SPEED=dashSPEED
-	if event.is_action_released("move_left") and $dashTimer.is_stopped():
+			$sprintTimer.start(2)
+			SPEED=sprintSPEED
+	if event.is_action_released("move_left") and $sprintTimer.is_stopped():
 		SPEED = walkSPEED
+
+
+func _on_air_dash_timer_timeout():
+	SPEED = walkSPEED

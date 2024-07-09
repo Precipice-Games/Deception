@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://b382cxo6j70yi"]
+[gd_scene load_steps=12 format=3 uid="uid://b382cxo6j70yi"]
 
 [ext_resource type="Texture2D" uid="uid://hj4wrw6avc05" path="res://art/kenney_abstract-platformer/Tilesheet/tilesheet_complete.png" id="1_8lbrk"]
 [ext_resource type="Texture2D" uid="uid://oh4vxh5qqvnu" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Terrain/Terrain (32x32).png" id="2_4raki"]
-[ext_resource type="PackedScene" uid="uid://bp54uo6isb3k7" path="res://Scenes/player.tscn" id="3_jgo8k"]
 [ext_resource type="Texture2D" uid="uid://kt4c2ikbdjd5" path="res://art/Jungle Asset Pack/jungle tileset/jungle tileset.png" id="3_oijjs"]
 [ext_resource type="Texture2D" uid="uid://c5ay6wiostjd" path="res://art/Pixel Art Platformer - Village Props v2.3.0/Texture/TX Tileset Ground.png" id="4_6t4ep"]
 [ext_resource type="Texture2D" uid="uid://b8arssy5144cg" path="res://art/Magic-Cliffs-Gamekit/Environment/PNG/tileset.png" id="5_a82uw"]
@@ -3036,6 +3035,3 @@ sources/4 = SubResource("TileSetAtlasSource_fhmxe")
 [node name="TEST tile map" type="TileMap"]
 tile_set = SubResource("TileSet_pvo4f")
 format = 2
-
-[node name="Player" parent="." instance=ExtResource("3_jgo8k")]
-position = Vector2(126, 78)

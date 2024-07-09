@@ -22,4 +22,4 @@ offset_right = 83.0
 offset_bottom = 40.0
 
 [node name="Player" parent="." instance=ExtResource("1_xssdo")]
-position = Vector2(72, 94)
+position = Vector2(91, 76)
