@@ -3038,4 +3038,4 @@ tile_set = SubResource("TileSet_pvo4f")
 format = 2
 
 [node name="Player" parent="." instance=ExtResource("3_jgo8k")]
-position = Vector2(157, 367)
+position = Vector2(126, 78)

@@ -1,0 +1,98 @@
+[gd_scene load_steps=14 format=3 uid="uid://6lvwgmsxfwj0"]
+
+[ext_resource type="Texture2D" uid="uid://dyci18bmbsvkf" path="res://art/Pixel Adventure 2/Enemies/AngryPig/Idle (36x30).png" id="1_6hmee"]
+[ext_resource type="Script" path="res://art/enemy_1.gd" id="1_tujxm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xpc5c"]
+atlas = ExtResource("1_6hmee")
+region = Rect2(0, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b1aab"]
+atlas = ExtResource("1_6hmee")
+region = Rect2(36, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gdrvw"]
+atlas = ExtResource("1_6hmee")
+region = Rect2(72, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hp803"]
+atlas = ExtResource("1_6hmee")
+region = Rect2(108, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ekyvh"]
+atlas = ExtResource("1_6hmee")
+region = Rect2(144, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_28awq"]
+atlas = ExtResource("1_6hmee")
+region = Rect2(180, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3v12"]
+atlas = ExtResource("1_6hmee")
+region = Rect2(216, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2inca"]
+atlas = ExtResource("1_6hmee")
+region = Rect2(252, 0, 36, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8jpgb"]
+atlas = ExtResource("1_6hmee")
+region = Rect2(288, 0, 36, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nfi2j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xpc5c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b1aab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gdrvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hp803")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ekyvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_28awq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3v12")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2inca")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8jpgb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 20.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jv4s"]
+size = Vector2(31, 27)
+
+[node name="Enemy1" type="Area2D"]
+collision_layer = 4
+collision_mask = 3
+script = ExtResource("1_tujxm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_nfi2j")
+animation = &"Idle"
+frame = 4
+frame_progress = 0.673109
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 1.5)
+shape = SubResource("RectangleShape2D_3jv4s")
+
+[node name="FloorCheck" type="RayCast2D" parent="."]
+position = Vector2(-16, 0)
+target_position = Vector2(0, 25)
