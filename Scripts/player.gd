@@ -9,7 +9,7 @@ extends CharacterBody2D
 
 @export var walkSPEED = 300.0
 @export var sprintSPEED =500.0
-@export var airDash = 2000
+@export var airDash = 500
 @export var JUMP_VELOCITY = -400.0
 var dashing = false
 var SPEED = walkSPEED
