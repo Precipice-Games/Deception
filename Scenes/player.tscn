@@ -1,27 +1,93 @@
-[gd_scene load_steps=4 format=3 uid="uid://bp54uo6isb3k7"]
+[gd_scene load_steps=12 format=3 uid="uid://bp54uo6isb3k7"]
 
-[ext_resource type="Texture2D" uid="uid://duvqwulxib6a1" path="res://art/Treasure Hunters/Captain Clown Nose/Sprites/Captain Clown Nose/Captain Clown Nose without Sword/01-Idle/Idle 01.png" id="1_2in8p"]
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_swmdo"]
+[ext_resource type="Texture2D" uid="uid://bnuw3j3hxnhko" path="res://art/Gablo/Gablo.png" id="2_n4lnu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y51qr"]
-size = Vector2(19, 24)
+size = Vector2(19, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4pm1"]
+atlas = ExtResource("2_n4lnu")
+region = Rect2(0, 0, 1000, 1333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m5ws"]
+atlas = ExtResource("2_n4lnu")
+region = Rect2(1000, 0, 1000, 1333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udeop"]
+atlas = ExtResource("2_n4lnu")
+region = Rect2(2000, 0, 1000, 1333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wpuua"]
+atlas = ExtResource("2_n4lnu")
+region = Rect2(0, 1333, 1000, 1333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ft37j"]
+atlas = ExtResource("2_n4lnu")
+region = Rect2(1000, 1333, 1000, 1333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1hjsu"]
+atlas = ExtResource("2_n4lnu")
+region = Rect2(2000, 1333, 1000, 1333)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sl6kw"]
+atlas = ExtResource("2_n4lnu")
+region = Rect2(0, 2666, 1000, 1333)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hgi01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4pm1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m5ws")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udeop")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wpuua")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ft37j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1hjsu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sl6kw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(175, 0)
+scale = Vector2(2, 2)
 script = ExtResource("1_swmdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -2)
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_y51qr")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-1, 9.53674e-07)
-scale = Vector2(0.890625, 0.85)
-texture = ExtResource("1_2in8p")
 
 [node name="GameTimer" type="Timer" parent="."]
 wait_time = 0.25
 one_shot = true
 
-[node name="dashTimer" type="Timer" parent="."]
+[node name="sprintTimer" type="Timer" parent="."]
 wait_time = 0.75
 one_shot = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-0.906236, -0.695313)
+scale = Vector2(0.0438125, 0.0469688)
+sprite_frames = SubResource("SpriteFrames_hgi01")
+frame_progress = 0.557459
+
+[node name="airDashTimer" type="Timer" parent="."]
+
+[connection signal="timeout" from="airDashTimer" to="." method="_on_air_dash_timer_timeout"]
