@@ -19,3 +19,5 @@ scale = Vector2(0.890625, 0.85)
 texture = ExtResource("1_2in8p")
 
 [node name="GameTimer" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
