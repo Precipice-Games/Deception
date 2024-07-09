@@ -8,6 +8,9 @@ size = Vector2(19, 24)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_swmdo")
+walkSPEED = 100.0
+dashSPEED = null
+JUMP_VELOCITY = null
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, -2)
@@ -19,7 +22,7 @@ scale = Vector2(0.890625, 0.85)
 texture = ExtResource("1_2in8p")
 
 [node name="GameTimer" type="Timer" parent="."]
-wait_time = 0.25
+wait_time = 0.75
 one_shot = true
 
 [node name="dashTimer" type="Timer" parent="."]
