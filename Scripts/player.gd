@@ -13,6 +13,7 @@ extends CharacterBody2D
 var dashing = false
 var SPEED = walkSPEED
 var canDash= true
+var isrunning = false
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -39,8 +40,12 @@ func _physics_process(delta):
 func _input(event):
 	
 	
+	if isrunning == true:
+		$AnimatedSprite2D.play("running")
+	
 	if not Input.is_anything_pressed():
 		$AnimatedSprite2D.play("idle")
+		isrunning = false
 	else:
 		$AnimatedSprite2D.stop()
 	
@@ -66,6 +71,7 @@ func _input(event):
 			SPEED = sprintSPEED
 	if event.is_action_pressed("move_right"):
 		$AnimatedSprite2D.flip_h = false
+		isrunning = true
 		if $GameTimer.is_stopped():
 			print("one press")
 			$GameTimer.start()
@@ -78,9 +84,11 @@ func _input(event):
 	if event.is_action_released("move_right") and $sprintTimer.is_stopped():
 		SPEED = walkSPEED
 	if event.is_action_pressed("move_left"):
+		isrunning = true
 		$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play("running")
 		if $GameTimer.is_stopped():
-			print("one press")
+			#print("one press")
 			$GameTimer.start()
 		else:
 			print("dash")

@@ -1,0 +1,103 @@
+[gd_scene load_steps=15 format=3 uid="uid://dctx2awfcdc4g"]
+
+[ext_resource type="Texture2D" uid="uid://ba75g1xfuy7vb" path="res://art/Pixel Adventure 2/Enemies/BlueBird/Flying (32x32).png" id="1_211lh"]
+[ext_resource type="Script" path="res://enemy_3.gd" id="1_ivone"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hh3xn"]
+atlas = ExtResource("1_211lh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ho0xm"]
+atlas = ExtResource("1_211lh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hrk6s"]
+atlas = ExtResource("1_211lh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcyah"]
+atlas = ExtResource("1_211lh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s4dys"]
+atlas = ExtResource("1_211lh")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hnrnt"]
+atlas = ExtResource("1_211lh")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u540t"]
+atlas = ExtResource("1_211lh")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40kp3"]
+atlas = ExtResource("1_211lh")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iskwf"]
+atlas = ExtResource("1_211lh")
+region = Rect2(256, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f45uo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hh3xn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ho0xm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hrk6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcyah")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s4dys")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hnrnt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u540t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40kp3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iskwf")
+}],
+"loop": true,
+"name": &"flying",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a86pg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_54tsr"]
+radius = 136.0
+
+[node name="enemy3" type="CharacterBody2D"]
+collision_layer = 4
+collision_mask = 6
+script = ExtResource("1_ivone")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_f45uo")
+animation = &"flying"
+frame = 1
+frame_progress = 0.808353
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(1.60849, 1.36143)
+shape = SubResource("CircleShape2D_a86pg")
+
+[node name="PlayerDetector" type="RayCast2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_54tsr")
