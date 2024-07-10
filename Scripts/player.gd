@@ -3,7 +3,7 @@
 #you don't slow down transitioning from dash to sprint when you hit ground.  Also dash not stoping after .2 seconds.  
 #Sprint: Stop delay in speed boost after double tap, 
 #immediately goes to speed acceloration.  Add momentum in air/ground too.  Make speed slow down/accelarate more smoothly, movement in general.  
-#Dash: Horizontal travel same distance every time you air dash.  Make dash movement more smooth.
+#Dash: Horizontal travel same distance every time you air dash.
 extends CharacterBody2D
 
 
