@@ -65,7 +65,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(174, 0)
-scale = Vector2(2, 2)
+scale = Vector2(2.5, 2)
 script = ExtResource("1_swmdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
