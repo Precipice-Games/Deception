@@ -30,6 +30,7 @@ func _physics_process(delta):
 
 func _input(event):
 	
+	
 	if not Input.is_anything_pressed():
 		$AnimatedSprite2D.play("idle")
 	else:
@@ -58,6 +59,7 @@ func _input(event):
 		if is_on_floor():
 			SPEED = sprintSPEED
 	if event.is_action_pressed("move_right"):
+		$AnimatedSprite2D.flip_h = false
 		if $GameTimer.is_stopped():
 			print("one press")
 			$GameTimer.start()
@@ -70,6 +72,7 @@ func _input(event):
 	if event.is_action_released("move_right") and $sprintTimer.is_stopped():
 		SPEED = walkSPEED
 	if event.is_action_pressed("move_left"):
+		$AnimatedSprite2D.flip_h = true
 		if $GameTimer.is_stopped():
 			print("one press")
 			$GameTimer.start()
