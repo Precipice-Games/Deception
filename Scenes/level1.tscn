@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://de233bnov4x8x"]
+[gd_scene load_steps=11 format=3 uid="uid://de233bnov4x8x"]
 
 [ext_resource type="Texture2D" uid="uid://ccbjq14tldsgy" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_8qoxh"]
 [ext_resource type="PackedScene" uid="uid://ou2cl8mhmy13" path="res://Scenes/clouds.tscn" id="2_68f2i"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://6lvwgmsxfwj0" path="res://Scenes/enemy_1.tscn" id="6_op41n"]
 [ext_resource type="Texture2D" uid="uid://dtq64efb8uxd1" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 03.png" id="8_7ggsl"]
 [ext_resource type="PackedScene" uid="uid://bn5suoqmd3w1j" path="res://enemy2.tscn" id="9_3qxa8"]
+[ext_resource type="Texture2D" uid="uid://dscgqsjppac52" path="res://art/Gablo/grumpiesback.png" id="10_2mh2x"]
 
 [node name="Level 1" type="Node2D"]
 position = Vector2(1, 0)
@@ -74,6 +75,11 @@ texture_filter = 1
 position = Vector2(3421, 633)
 scale = Vector2(5.09538, 4.90625)
 texture = ExtResource("8_7ggsl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(295, 416)
+scale = Vector2(0.157953, 0.221924)
+texture = ExtResource("10_2mh2x")
 
 [node name="TEST tile map" parent="." instance=ExtResource("5_4hw15")]
 position = Vector2(-32, -14)
