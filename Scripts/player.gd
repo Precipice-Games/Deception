@@ -21,7 +21,6 @@ var dash = false
 
 func _physics_process(delta):
 	
-	
 	# Add the gravity.
 	var facing_direction = 0
 	if not is_on_floor():
@@ -30,6 +29,13 @@ func _physics_process(delta):
 
 
 func _input(event):
+	
+	if not Input.is_anything_pressed():
+		$AnimatedSprite2D.play("idle")
+	else:
+		$AnimatedSprite2D.stop()
+	
+	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY

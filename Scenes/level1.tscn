@@ -56,4 +56,4 @@ position = Vector2(1072, 445)
 
 [node name="Player" parent="." instance=ExtResource("6_2mjif")]
 texture_filter = 1
-position = Vector2(1195, 420)
+position = Vector2(122, 425)
