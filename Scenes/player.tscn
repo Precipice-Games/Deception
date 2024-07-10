@@ -205,10 +205,9 @@ one_shot = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(2, -4.5)
-scale = Vector2(0.0497092, 0.0595954)
+scale = Vector2(0.0497092, 0.0588644)
 sprite_frames = SubResource("SpriteFrames_hgi01")
 animation = &"JUMP"
-frame_progress = 0.704668
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1, 1.01317)

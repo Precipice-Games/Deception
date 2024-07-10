@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://de233bnov4x8x"]
+[gd_scene load_steps=19 format=3 uid="uid://de233bnov4x8x"]
 
 [ext_resource type="Texture2D" uid="uid://ccbjq14tldsgy" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_8qoxh"]
 [ext_resource type="PackedScene" uid="uid://ou2cl8mhmy13" path="res://Scenes/clouds.tscn" id="2_68f2i"]
@@ -8,8 +8,48 @@
 [ext_resource type="PackedScene" uid="uid://bp54uo6isb3k7" path="res://Scenes/player.tscn" id="6_2mjif"]
 [ext_resource type="PackedScene" uid="uid://6lvwgmsxfwj0" path="res://Scenes/enemy_1.tscn" id="6_op41n"]
 [ext_resource type="Texture2D" uid="uid://dtq64efb8uxd1" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 03.png" id="8_7ggsl"]
-[ext_resource type="PackedScene" uid="uid://bn5suoqmd3w1j" path="res://enemy2.tscn" id="9_3qxa8"]
+[ext_resource type="PackedScene" uid="uid://bn5suoqmd3w1j" path="res://Scenes/enemy2.tscn" id="9_3qxa8"]
 [ext_resource type="Texture2D" uid="uid://dscgqsjppac52" path="res://art/Gablo/grumpiesback.png" id="10_2mh2x"]
+[ext_resource type="Texture2D" uid="uid://bw7cgvn8t0a1x" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 01.png" id="10_owusa"]
+[ext_resource type="Texture2D" uid="uid://hjwcwf368c7t" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 02.png" id="11_deoho"]
+[ext_resource type="Texture2D" uid="uid://6b5lqvb22xl0" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 03.png" id="12_e0tyn"]
+[ext_resource type="Texture2D" uid="uid://breqwmmro51wx" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 04.png" id="13_jncmc"]
+[ext_resource type="Texture2D" uid="uid://dhb0ii17ooi8p" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="14_xv7h3"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d2t01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("10_owusa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_deoho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_e0tyn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_jncmc")
+}],
+"loop": true,
+"name": &"Tree",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_adn72"]
+atlas = ExtResource("14_xv7h3")
+region = Rect2(0, 0, 24, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mst38"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_adn72")
+}],
+"loop": true,
+"name": &"branch",
+"speed": 5.0
+}]
 
 [node name="Level 1" type="Node2D"]
 position = Vector2(1, 0)
@@ -49,8 +89,6 @@ frame_progress = 0.330233
 [node name="AnimatedSprite2D2" parent="ParallaxBackground/PalmTrees" instance=ExtResource("4_3wb6j")]
 position = Vector2(152, 381)
 autoplay = "Tree"
-frame = 3
-frame_progress = 0.451283
 
 [node name="AnimatedSprite2D3" parent="ParallaxBackground/PalmTrees" instance=ExtResource("4_3wb6j")]
 position = Vector2(1277, 396)
@@ -101,11 +139,20 @@ position = Vector2(7323, 684)
 texture_filter = 1
 position = Vector2(122, 425)
 
-[node name="Top Tree(last so it\'s on top)" type="Sprite2D" parent="."]
+[node name="Top Tree(last so it\'s on top)" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1496.63, 572.375)
+position = Vector2(1612.23, 362.188)
 scale = Vector2(8.01172, 7.88672)
-texture = ExtResource("8_7ggsl")
+sprite_frames = SubResource("SpriteFrames_d2t01")
+animation = &"Tree"
+autoplay = "Tree"
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(1591.23, 662.188)
+scale = Vector2(8.01172, 7.88672)
+sprite_frames = SubResource("SpriteFrames_mst38")
+animation = &"branch"
 
 [node name="Top Tree(last so it\'s on top)2" type="Sprite2D" parent="."]
 texture_filter = 1
