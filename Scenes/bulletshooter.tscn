@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwrrytbgf1xg5"]
+
+[ext_resource type="Texture2D" uid="uid://b6gpodi1noxsu" path="res://art/Pixel Adventure 2/Enemies/Plant/Bullet.png" id="1_078j1"]
+[ext_resource type="Script" path="res://Scenes/bulletshooter.gd" id="1_akot3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_gs0d8"]
+radius = 8.0
+
+[node name="bulletshooter" type="Area2D"]
+script = ExtResource("1_akot3")
+
+[node name="Bullet" type="Sprite2D" parent="."]
+texture = ExtResource("1_078j1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_gs0d8")
