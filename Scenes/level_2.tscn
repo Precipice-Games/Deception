@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://khddxe551qkj"]
+
+[ext_resource type="Texture2D" uid="uid://jryw8lsuuuns" path="res://art/Gablo/Cave_Background.png" id="1_siitt"]
+[ext_resource type="PackedScene" uid="uid://dtv28yytj8ggf" path="res://tiles_level_2.tscn" id="2_6cfwf"]
+
+[node name="level2" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+scale = Vector2(50, 50)
+texture = ExtResource("1_siitt")
+
+[node name="tilesLevel2" parent="." instance=ExtResource("2_6cfwf")]
