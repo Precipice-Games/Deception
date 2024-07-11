@@ -23,11 +23,11 @@ var sprint = false
 
 func _physics_process(delta):
 	if Input.is_action_pressed("dash") and not is_on_floor() and Input.is_action_pressed("move_right") and canDash==true:
-		position.x += 50
+		position.x += 75
 		canDash=false
 		$canDashTimer.start(1)
 	if Input.is_action_pressed("dash") and not is_on_floor() and Input.is_action_pressed("move_left") and canDash==true:
-		position.x -= 50
+		position.x -= 75
 		canDash=false
 		$canDashTimer.start(1)
 
@@ -40,7 +40,7 @@ func _physics_process(delta):
 
 func _input(event):
 	if direction == 0:
-		$AnimatedSprite2D.play("idle2")
+		$AnimatedSprite2D.play("idle")
 	
 	if event.is_action_pressed("punch"):
 		$AnimatedSprite2D.play("punch")
@@ -69,7 +69,7 @@ func _input(event):
 			SPEED = sprintSPEED
 	if event.is_action_pressed("move_right"):
 		$AnimatedSprite2D.flip_h = false
-		$AnimatedSprite2D.play("running")
+		$AnimatedSprite2D.play("runbig")
 		isrunning = true
 		if $GameTimer.is_stopped():
 			print("one press")
@@ -85,7 +85,7 @@ func _input(event):
 	if event.is_action_pressed("move_left"):
 		isrunning = true
 		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.play("running")
+		$AnimatedSprite2D.play("runbig")
 		if $GameTimer.is_stopped():
 			#print("one press")
 			$GameTimer.start()
@@ -109,4 +109,7 @@ func _on_can_dash_timer_timeout():
 
 
 func _on_damage_detector_area_entered(area):
-	get_tree().change_scene_to_file("res://Scenes/level1.tscn")
+	print(area.name)
+	if area.is_in_group("harmful"):
+		get_tree().change_scene_to_file("res://Scenes/level1.tscn")
+	

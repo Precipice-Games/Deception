@@ -76,12 +76,12 @@ animations = [{
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a86pg"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_54tsr"]
-radius = 136.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7fl24"]
+size = Vector2(100, 1204)
 
-[node name="enemy3" type="CharacterBody2D"]
+[node name="enemy3" type="CharacterBody2D" groups=["harmful"]]
 collision_layer = 4
-collision_mask = 6
+collision_mask = 4
 script = ExtResource("1_ivone")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -95,11 +95,15 @@ frame_progress = 0.808353
 scale = Vector2(1.60849, 1.36143)
 shape = SubResource("CircleShape2D_a86pg")
 
-[node name="PlayerDetector" type="RayCast2D" parent="."]
+[node name="PlayerDetector" type="RayCast2D" parent="." groups=["harmful"]]
+collision_mask = 2
 
 [node name="Area2D" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("CircleShape2D_54tsr")
+position = Vector2(0, 102)
+shape = SubResource("RectangleShape2D_7fl24")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

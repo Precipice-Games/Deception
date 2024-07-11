@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=3 uid="uid://bp54uo6isb3k7"]
+[gd_scene load_steps=75 format=3 uid="uid://bp54uo6isb3k7"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_swmdo"]
 [ext_resource type="Texture2D" uid="uid://bptuu4l5ymcvy" path="res://art/Gablo/jumpfixed.png" id="2_i643k"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://c5qk3y5ii1yqn" path="res://art/Gablo/punchypunch new.png" id="7_0w77s"]
 [ext_resource type="Texture2D" uid="uid://b2smeuhodi1ky" path="res://art/Gablo/pleaseworkpunch copy.png" id="8_owbgh"]
 [ext_resource type="Texture2D" uid="uid://b6ubmlmackh6p" path="res://art/Gablo/runfixed-2.png" id="9_55oau"]
+[ext_resource type="Texture2D" uid="uid://byp0y5uxifoww" path="res://art/Gablo/runbig-2.png" id="9_yp6bu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y51qr"]
 size = Vector2(21.8, 38.75)
@@ -170,6 +171,22 @@ region = Rect2(0, 800, 380, 400)
 [sub_resource type="AtlasTexture" id="AtlasTexture_nax3a"]
 atlas = ExtResource("8_owbgh")
 region = Rect2(380, 800, 380, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gqoxw"]
+atlas = ExtResource("9_yp6bu")
+region = Rect2(0, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esgex"]
+atlas = ExtResource("9_yp6bu")
+region = Rect2(400, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h1827"]
+atlas = ExtResource("9_yp6bu")
+region = Rect2(0, 500, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w882a"]
+atlas = ExtResource("9_yp6bu")
+region = Rect2(400, 500, 400, 500)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gyown"]
 atlas = ExtResource("5_xplre")
@@ -391,6 +408,23 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_gqoxw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_esgex")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h1827")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w882a")
+}],
+"loop": true,
+"name": &"runbig",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gyown")
 }, {
 "duration": 1.0,
@@ -459,11 +493,13 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5rci"]
-size = Vector2(10.309, 19.9195)
+size = Vector2(15.5957, 21.3136)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(174, 0)
 scale = Vector2(2.5, 2)
+collision_layer = 2
+collision_mask = 5
 script = ExtResource("1_swmdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -482,7 +518,7 @@ one_shot = true
 position = Vector2(2, -4.5)
 scale = Vector2(0.0497092, 0.0588644)
 sprite_frames = SubResource("SpriteFrames_hgi01")
-animation = &"idle"
+animation = &"runbig"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1, 1.01317)
@@ -496,9 +532,10 @@ collision_layer = 2
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageDetector"]
-position = Vector2(2, -5.5)
+position = Vector2(1.8, -5)
 scale = Vector2(1.51324, 1.87674)
 shape = SubResource("RectangleShape2D_j5rci")
 
 [connection signal="timeout" from="canDashTimer" to="." method="_on_can_dash_timer_timeout"]
 [connection signal="area_entered" from="DamageDetector" to="." method="_on_damage_detector_area_entered"]
+[connection signal="body_entered" from="DamageDetector" to="." method="_on_damage_detector_area_entered"]

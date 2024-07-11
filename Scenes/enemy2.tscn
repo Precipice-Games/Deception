@@ -154,8 +154,10 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h6e0w"]
 size = Vector2(39.7875, 42)
 
-[node name="enemy2" type="Area2D"]
+[node name="enemy2" type="Area2D" groups=["harmful"]]
 position = Vector2(120, 104)
+collision_layer = 4
+collision_mask = 2
 script = ExtResource("1_6lbs8")
 bulletshooter_scene = ExtResource("4_k32fi")
 metadata/_edit_group_ = true
