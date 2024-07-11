@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=3 uid="uid://bp54uo6isb3k7"]
+[gd_scene load_steps=70 format=3 uid="uid://bp54uo6isb3k7"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_swmdo"]
 [ext_resource type="Texture2D" uid="uid://bptuu4l5ymcvy" path="res://art/Gablo/jumpfixed.png" id="2_i643k"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bs27w28gx4cdr" path="res://art/Gablo/run new-2.png" id="5_xplre"]
 [ext_resource type="Texture2D" uid="uid://bflb8qqcvkiel" path="res://art/Gablo/runreidid-2.png" id="6_dw1ql"]
 [ext_resource type="Texture2D" uid="uid://c5qk3y5ii1yqn" path="res://art/Gablo/punchypunch new.png" id="7_0w77s"]
+[ext_resource type="Texture2D" uid="uid://d2b83exi4csiy" path="res://art/Gablo/pleaseworkpunch copy.png" id="8_owbgh"]
 [ext_resource type="Texture2D" uid="uid://b6ubmlmackh6p" path="res://art/Gablo/runfixed-2.png" id="9_55oau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y51qr"]
@@ -145,6 +146,30 @@ region = Rect2(450, 500, 450, 500)
 [sub_resource type="AtlasTexture" id="AtlasTexture_bnalh"]
 atlas = ExtResource("7_0w77s")
 region = Rect2(0, 1000, 450, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjdtq"]
+atlas = ExtResource("8_owbgh")
+region = Rect2(0, 0, 380, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxpao"]
+atlas = ExtResource("8_owbgh")
+region = Rect2(380, 0, 380, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ynia1"]
+atlas = ExtResource("8_owbgh")
+region = Rect2(0, 400, 380, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_exa8q"]
+atlas = ExtResource("8_owbgh")
+region = Rect2(380, 400, 380, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt4e1"]
+atlas = ExtResource("8_owbgh")
+region = Rect2(0, 800, 380, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nax3a"]
+atlas = ExtResource("8_owbgh")
+region = Rect2(380, 800, 380, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gyown"]
 atlas = ExtResource("5_xplre")
@@ -343,6 +368,29 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_vjdtq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxpao")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ynia1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_exa8q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bt4e1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nax3a")
+}],
+"loop": true,
+"name": &"punch3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_gyown")
 }, {
 "duration": 1.0,
@@ -410,6 +458,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j5rci"]
+size = Vector2(10.309, 19.9195)
+
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(174, 0)
 scale = Vector2(2.5, 2)
@@ -431,8 +482,7 @@ one_shot = true
 position = Vector2(2, -4.5)
 scale = Vector2(0.0497092, 0.0588644)
 sprite_frames = SubResource("SpriteFrames_hgi01")
-animation = &"running"
-frame_progress = 0.0673993
+animation = &"idle"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1, 1.01317)
@@ -441,4 +491,14 @@ limit_bottom = 150
 
 [node name="canDashTimer" type="Timer" parent="."]
 
+[node name="DamageDetector" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageDetector"]
+position = Vector2(2, -5.5)
+scale = Vector2(1.51324, 1.87674)
+shape = SubResource("RectangleShape2D_j5rci")
+
 [connection signal="timeout" from="canDashTimer" to="." method="_on_can_dash_timer_timeout"]
+[connection signal="area_entered" from="DamageDetector" to="." method="_on_damage_detector_area_entered"]
