@@ -1,9 +1,11 @@
-[gd_scene load_steps=20 format=3 uid="uid://de233bnov4x8x"]
+[gd_scene load_steps=24 format=3 uid="uid://de233bnov4x8x"]
 
 [ext_resource type="Texture2D" uid="uid://ccbjq14tldsgy" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_8qoxh"]
+[ext_resource type="Texture2D" uid="uid://d0mgeb6oya76c" path="res://art/Gablo/moregrumpysback.png" id="2_3e8la"]
 [ext_resource type="PackedScene" uid="uid://ou2cl8mhmy13" path="res://Scenes/clouds.tscn" id="2_68f2i"]
 [ext_resource type="Texture2D" uid="uid://ddfh80ua6dqak" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="3_qkt3f"]
 [ext_resource type="PackedScene" uid="uid://ha8gdesorkd1" path="res://Scenes/BackTree.tscn" id="4_3wb6j"]
+[ext_resource type="Texture2D" uid="uid://btadn2ac4bf7b" path="res://art/Gablo/thesus.png" id="4_7d6ox"]
 [ext_resource type="PackedScene" uid="uid://b382cxo6j70yi" path="res://Scenes/test_tile_map.tscn" id="5_4hw15"]
 [ext_resource type="PackedScene" uid="uid://bp54uo6isb3k7" path="res://Scenes/player.tscn" id="6_2mjif"]
 [ext_resource type="PackedScene" uid="uid://6lvwgmsxfwj0" path="res://Scenes/enemy_1.tscn" id="6_op41n"]
@@ -16,6 +18,8 @@
 [ext_resource type="Texture2D" uid="uid://breqwmmro51wx" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Tree Top 04.png" id="13_jncmc"]
 [ext_resource type="Texture2D" uid="uid://dhb0ii17ooi8p" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Front Palm Trees/Front Palm Bottom and Grass (32x32).png" id="14_xv7h3"]
 [ext_resource type="PackedScene" uid="uid://dctx2awfcdc4g" path="res://Scenes/enemy_3.tscn" id="16_w176q"]
+[ext_resource type="PackedScene" uid="uid://crmw6pg8gl561" path="res://BigBird.tscn" id="17_n370f"]
+[ext_resource type="Texture2D" uid="uid://bovqycgqy773o" path="res://art/Gablo/finish.png" id="19_5wkk4"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_d2t01"]
 animations = [{
@@ -65,6 +69,10 @@ position = Vector2(1, 0)
 scale = Vector2(10.0807, 5.04688)
 texture = ExtResource("1_8qoxh")
 centered = false
+
+[node name="CharacterBody2D2" parent="ParallaxBackground/Sky/Sprite2D" instance=ExtResource("17_n370f")]
+position = Vector2(381.224, 111.356)
+scale = Vector2(0.0991995, 0.198142)
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
@@ -128,9 +136,19 @@ scale = Vector2(5.09538, 4.90625)
 texture = ExtResource("8_7ggsl")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(295, 416)
-scale = Vector2(0.157953, 0.221924)
+position = Vector2(291, 420)
+scale = Vector2(0.213876, 0.184533)
 texture = ExtResource("10_2mh2x")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(5097, 602)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_3e8la")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(3235, 704)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("4_7d6ox")
 
 [node name="TEST tile map" parent="." instance=ExtResource("5_4hw15")]
 position = Vector2(-32, -18)
@@ -202,5 +220,22 @@ texture = ExtResource("8_7ggsl")
 position = Vector2(6795, 662)
 
 [node name="enemy3" parent="." node_paths=PackedStringArray("player") instance=ExtResource("16_w176q")]
-position = Vector2(398, 287)
+position = Vector2(3552, 151)
 player = NodePath("../Player")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("17_n370f")]
+position = Vector2(1334, 428)
+
+[node name="Enemy4" parent="." instance=ExtResource("6_op41n")]
+position = Vector2(5316, 616)
+
+[node name="Enemy5" parent="." instance=ExtResource("6_op41n")]
+position = Vector2(3407, 702)
+
+[node name="Enemy6" parent="." instance=ExtResource("6_op41n")]
+position = Vector2(8899, 525)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(10138, 506)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("19_5wkk4")

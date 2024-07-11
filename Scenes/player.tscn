@@ -1,10 +1,11 @@
-[gd_scene load_steps=75 format=3 uid="uid://bp54uo6isb3k7"]
+[gd_scene load_steps=79 format=3 uid="uid://bp54uo6isb3k7"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_swmdo"]
 [ext_resource type="Texture2D" uid="uid://bptuu4l5ymcvy" path="res://art/Gablo/jumpfixed.png" id="2_i643k"]
 [ext_resource type="Texture2D" uid="uid://bnuw3j3hxnhko" path="res://art/Gablo/Gablo.png" id="2_n4lnu"]
 [ext_resource type="Texture2D" uid="uid://cybjg7pdgrypw" path="res://art/Gablo/Untitled-3.png" id="3_373pn"]
 [ext_resource type="Texture2D" uid="uid://nqm8x8pevvun" path="res://art/Gablo/punchypunch refixeddid.png" id="4_4b8vn"]
+[ext_resource type="Texture2D" uid="uid://d1qlglx20l5i1" path="res://art/Gablo/jumpnew.png" id="4_royyj"]
 [ext_resource type="Texture2D" uid="uid://bnqhgbbiivt48" path="res://art/Gablo/smallGablo (1).png" id="5_6ioeg"]
 [ext_resource type="Texture2D" uid="uid://bs27w28gx4cdr" path="res://art/Gablo/run new-2.png" id="5_xplre"]
 [ext_resource type="Texture2D" uid="uid://bflb8qqcvkiel" path="res://art/Gablo/runreidid-2.png" id="6_dw1ql"]
@@ -51,6 +52,18 @@ region = Rect2(0, 1428, 1000, 714)
 [sub_resource type="AtlasTexture" id="AtlasTexture_mwttt"]
 atlas = ExtResource("3_373pn")
 region = Rect2(1000, 1428, 1000, 714)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fng8p"]
+atlas = ExtResource("4_royyj")
+region = Rect2(0, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kfpr6"]
+atlas = ExtResource("4_royyj")
+region = Rect2(400, 500, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u327b"]
+atlas = ExtResource("4_royyj")
+region = Rect2(800, 500, 400, 500)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4pm1"]
 atlas = ExtResource("2_n4lnu")
@@ -293,6 +306,20 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_fng8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kfpr6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u327b")
+}],
+"loop": true,
+"name": &"Jump3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_p4pm1")
 }, {
 "duration": 1.0,
@@ -518,7 +545,7 @@ one_shot = true
 position = Vector2(2, -4.5)
 scale = Vector2(0.0497092, 0.0588644)
 sprite_frames = SubResource("SpriteFrames_hgi01")
-animation = &"runbig"
+animation = &"idle2"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1, 1.01317)

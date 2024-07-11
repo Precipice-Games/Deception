@@ -15,6 +15,7 @@ var SPEED = walkSPEED
 var canDash= true
 var isrunning = false
 var direction = 0
+var fall = 1000
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -22,6 +23,13 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var sprint = false
 
 func _physics_process(delta):
+	
+	if global_position.y > fall:
+		print(global_position.y, " ", fall)
+		get_tree().change_scene_to_file("res://Scenes/level1.tscn")
+	
+	
+	
 	if Input.is_action_pressed("dash") and not is_on_floor() and Input.is_action_pressed("move_right") and canDash==true:
 		position.x += 75
 		canDash=false
@@ -50,7 +58,7 @@ func _input(event):
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		$AnimatedSprite2D.play("JUMP")
+		$AnimatedSprite2D.play("Jump3")
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
