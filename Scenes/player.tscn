@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=3 uid="uid://bp54uo6isb3k7"]
+[gd_scene load_steps=87 format=3 uid="uid://bp54uo6isb3k7"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_swmdo"]
 [ext_resource type="Texture2D" uid="uid://bptuu4l5ymcvy" path="res://art/Gablo/jumpfixed.png" id="2_i643k"]
@@ -10,12 +10,13 @@
 [ext_resource type="Texture2D" uid="uid://bs27w28gx4cdr" path="res://art/Gablo/run new-2.png" id="5_xplre"]
 [ext_resource type="Texture2D" uid="uid://bflb8qqcvkiel" path="res://art/Gablo/runreidid-2.png" id="6_dw1ql"]
 [ext_resource type="Texture2D" uid="uid://c5qk3y5ii1yqn" path="res://art/Gablo/punchypunch new.png" id="7_0w77s"]
+[ext_resource type="Texture2D" uid="uid://cnnhuhr2pd73a" path="res://art/Gablo/Gablo (nw1).png" id="7_7bogj"]
 [ext_resource type="Texture2D" uid="uid://b2smeuhodi1ky" path="res://art/Gablo/pleaseworkpunch copy.png" id="8_owbgh"]
 [ext_resource type="Texture2D" uid="uid://b6ubmlmackh6p" path="res://art/Gablo/runfixed-2.png" id="9_55oau"]
 [ext_resource type="Texture2D" uid="uid://byp0y5uxifoww" path="res://art/Gablo/runbig-2.png" id="9_yp6bu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y51qr"]
-size = Vector2(21.8, 38.75)
+size = Vector2(14.8, 28.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_03uqy"]
 atlas = ExtResource("2_i643k")
@@ -120,6 +121,34 @@ region = Rect2(500, 300, 250, 300)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ahph"]
 atlas = ExtResource("5_6ioeg")
 region = Rect2(0, 600, 250, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_miias"]
+atlas = ExtResource("7_7bogj")
+region = Rect2(0, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c2q7"]
+atlas = ExtResource("7_7bogj")
+region = Rect2(400, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jeeo8"]
+atlas = ExtResource("7_7bogj")
+region = Rect2(800, 0, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0iba"]
+atlas = ExtResource("7_7bogj")
+region = Rect2(0, 500, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_siayc"]
+atlas = ExtResource("7_7bogj")
+region = Rect2(400, 500, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qyo1d"]
+atlas = ExtResource("7_7bogj")
+region = Rect2(800, 500, 400, 500)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lel2"]
+atlas = ExtResource("7_7bogj")
+region = Rect2(0, 1000, 400, 500)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3xx1x"]
 atlas = ExtResource("4_4b8vn")
@@ -372,6 +401,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_miias")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c2q7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jeeo8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0iba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_siayc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qyo1d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lel2")
+}],
+"loop": true,
+"name": &"idol",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_3xx1x")
 }, {
 "duration": 1.0,
@@ -520,7 +575,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5rci"]
-size = Vector2(15.5957, 21.3136)
+size = Vector2(10.309, 15.7187)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(174, 0)
@@ -530,7 +585,7 @@ collision_mask = 5
 script = ExtResource("1_swmdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.9, -5.125)
+position = Vector2(1.80002, -6.25)
 shape = SubResource("RectangleShape2D_y51qr")
 
 [node name="GameTimer" type="Timer" parent="."]
@@ -545,7 +600,7 @@ one_shot = true
 position = Vector2(2, -4.5)
 scale = Vector2(0.0497092, 0.0588644)
 sprite_frames = SubResource("SpriteFrames_hgi01")
-animation = &"idle2"
+animation = &"runbig"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1, 1.01317)
@@ -559,7 +614,7 @@ collision_layer = 2
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageDetector"]
-position = Vector2(1.8, -5)
+position = Vector2(1.8, -6.25)
 scale = Vector2(1.51324, 1.87674)
 shape = SubResource("RectangleShape2D_j5rci")
 

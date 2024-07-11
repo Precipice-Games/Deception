@@ -48,7 +48,7 @@ func _physics_process(delta):
 
 func _input(event):
 	if direction == 0:
-		$AnimatedSprite2D.play("idle")
+		$AnimatedSprite2D.play("idol")
 	
 	if event.is_action_pressed("punch"):
 		$AnimatedSprite2D.play("punch")
