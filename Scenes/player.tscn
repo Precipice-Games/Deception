@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bs27w28gx4cdr" path="res://art/Gablo/run new-2.png" id="5_xplre"]
 [ext_resource type="Texture2D" uid="uid://bflb8qqcvkiel" path="res://art/Gablo/runreidid-2.png" id="6_dw1ql"]
 [ext_resource type="Texture2D" uid="uid://c5qk3y5ii1yqn" path="res://art/Gablo/punchypunch new.png" id="7_0w77s"]
-[ext_resource type="Texture2D" uid="uid://d2b83exi4csiy" path="res://art/Gablo/pleaseworkpunch copy.png" id="8_owbgh"]
+[ext_resource type="Texture2D" uid="uid://b2smeuhodi1ky" path="res://art/Gablo/pleaseworkpunch copy.png" id="8_owbgh"]
 [ext_resource type="Texture2D" uid="uid://b6ubmlmackh6p" path="res://art/Gablo/runfixed-2.png" id="9_55oau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y51qr"]
