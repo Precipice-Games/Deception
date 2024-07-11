@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://bp54uo6isb3k7"]
+[gd_scene load_steps=59 format=3 uid="uid://bp54uo6isb3k7"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_swmdo"]
 [ext_resource type="Texture2D" uid="uid://bptuu4l5ymcvy" path="res://art/Gablo/jumpfixed.png" id="2_i643k"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bnqhgbbiivt48" path="res://art/Gablo/smallGablo (1).png" id="5_6ioeg"]
 [ext_resource type="Texture2D" uid="uid://bs27w28gx4cdr" path="res://art/Gablo/run new-2.png" id="5_xplre"]
 [ext_resource type="Texture2D" uid="uid://bflb8qqcvkiel" path="res://art/Gablo/runreidid-2.png" id="6_dw1ql"]
+[ext_resource type="Texture2D" uid="uid://b6ubmlmackh6p" path="res://art/Gablo/runfixed-2.png" id="9_55oau"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y51qr"]
 size = Vector2(21.8, 38.75)
@@ -184,6 +185,22 @@ region = Rect2(0, 714, 1000, 714)
 atlas = ExtResource("5_xplre")
 region = Rect2(1000, 714, 1000, 714)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_a1fp1"]
+atlas = ExtResource("9_55oau")
+region = Rect2(0, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j3dy1"]
+atlas = ExtResource("9_55oau")
+region = Rect2(400, 0, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_osjdy"]
+atlas = ExtResource("9_55oau")
+region = Rect2(0, 400, 400, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vjjaj"]
+atlas = ExtResource("9_55oau")
+region = Rect2(400, 400, 400, 400)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_hgi01"]
 animations = [{
 "frames": [{
@@ -354,6 +371,23 @@ animations = [{
 "loop": true,
 "name": &"running3",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a1fp1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j3dy1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_osjdy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vjjaj")
+}],
+"loop": true,
+"name": &"running4",
+"speed": 5.0
 }]
 
 [node name="Player" type="CharacterBody2D"]
@@ -377,7 +411,7 @@ one_shot = true
 position = Vector2(2, -4.5)
 scale = Vector2(0.0497092, 0.0588644)
 sprite_frames = SubResource("SpriteFrames_hgi01")
-animation = &"JUMP2"
+animation = &"running4"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1, 1.01317)
