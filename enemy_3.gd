@@ -21,5 +21,5 @@ func _process(delta):
 
 func is_player_in_line_of_sight():
 	$PlayerDetector.target_position = player.position - self.position
-	return not $PlayerDetector.is_colliding()
+	return $PlayerDetector.is_colliding()
 	
