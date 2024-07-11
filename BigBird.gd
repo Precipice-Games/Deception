@@ -7,25 +7,36 @@ var state = HOVER
 @onready var start_position = global_position
 @onready var timer = $Timer
 @onready var raycast: = $RayCast2D
+@onready var animatedsprite = $AnimatedSprite2D
 
 func _physics_process(delta):
 	match state:
 		HOVER: hover_state()
-		FALL: fall_state()
-		LAND: pass
-		RISE: pass
+		FALL: fall_state(delta)
+		LAND: land_state()
+		RISE: rise_state(delta)
 		
 	
 func hover_state():
 	if timer.time_left == 0: timer.start
 	state = FALL
 	
-func fall_state():
-	position.y += 10
+func fall_state(delta):
+	animatedsprite.play("Falling")
+	position.y += 100 * delta
 	if raycast .is_colliding():
 		var collision_point = raycast.get_collision_point()
 		position.y = collision_point.y
 		state = LAND
-		
-		func land_state():
-			pass 
+		timer.start(1.0)
+
+func land_state():
+	animatedsprite.play("Ground")
+	if timer.time_left == 0:
+		state = RISE
+	
+func rise_state(delta):
+	animatedsprite.play("Rising")
+	position.y = move_toward(position.y, start_position.y, 20 * delta)
+	if position.y == start_position.y:
+		state = HOVER
