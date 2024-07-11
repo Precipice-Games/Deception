@@ -14,6 +14,7 @@ var dashing = false
 var SPEED = walkSPEED
 var canDash= true
 var isrunning = false
+var direction = 0
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
@@ -38,25 +39,22 @@ func _physics_process(delta):
 
 
 func _input(event):
+	if direction == 0:
+		$AnimatedSprite2D.play("idle2")
 	
+	if event.is_action_pressed("punch"):
+		$AnimatedSprite2D.play("punch")
 	
-	if isrunning == true:
-		$AnimatedSprite2D.play("running")
-	
-	if not Input.is_anything_pressed():
-		$AnimatedSprite2D.play("idle")
-		isrunning = false
-	else:
-		$AnimatedSprite2D.stop()
 	
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
+		$AnimatedSprite2D.play("JUMP")
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("move_left", "move_right")
+	direction = Input.get_axis("move_left", "move_right")
 	if direction:
 		velocity.x = direction * SPEED
 	else:
@@ -71,6 +69,7 @@ func _input(event):
 			SPEED = sprintSPEED
 	if event.is_action_pressed("move_right"):
 		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play("running")
 		isrunning = true
 		if $GameTimer.is_stopped():
 			print("one press")
@@ -106,3 +105,8 @@ func _input(event):
 
 func _on_can_dash_timer_timeout():
 	canDash=true
+	
+
+
+func _on_damage_detector_area_entered(area):
+	get_tree().change_scene_to_file("res://Scenes/level1.tscn")
