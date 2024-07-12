@@ -113,7 +113,7 @@ text = "Thank you for playing our demo  :)"
 metadata/_edit_use_anchors_ = true
 
 [node name="enemy2" parent="." instance=ExtResource("6_d0ylw")]
-position = Vector2(200, 594)
+position = Vector2(243, 434)
 
 [node name="enemy2(2)" parent="." instance=ExtResource("6_d0ylw")]
-position = Vector2(692, 593)
+position = Vector2(474, 413)

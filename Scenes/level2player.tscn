@@ -615,6 +615,9 @@ shape = SubResource("RectangleShape2D_j5rci")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="timeout" from="canDashTimer" to="." method="_on_can_dash_timer_timeout"]
 [connection signal="area_entered" from="DamageDetector" to="." method="_on_damage_detector_area_entered"]
 [connection signal="body_entered" from="DamageDetector" to="." method="_on_damage_detector_area_entered"]

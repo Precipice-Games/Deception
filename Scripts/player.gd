@@ -117,3 +117,7 @@ func _on_direction_sprint_timer_timeout():
 
 func _on_jump_timer_timeout():
 	$AnimatedSprite2D.play("idle3")
+
+
+func _on_area_2d_area_entered(area):
+	get_tree().change_scene_to_file("res://Scenes/level2.tscn")

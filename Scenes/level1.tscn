@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://de233bnov4x8x"]
+[gd_scene load_steps=43 format=3 uid="uid://de233bnov4x8x"]
 
 [ext_resource type="Texture2D" uid="uid://ccbjq14tldsgy" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_8qoxh"]
 [ext_resource type="Texture2D" uid="uid://d0mgeb6oya76c" path="res://art/Gablo/moregrumpysback.png" id="2_3e8la"]
@@ -205,6 +205,9 @@ animations = [{
 "name": &"e",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_awd4m"]
+size = Vector2(280, 320)
 
 [node name="Level 1" type="Node2D"]
 position = Vector2(1, 0)
@@ -424,10 +427,17 @@ position = Vector2(3407, 702)
 [node name="Enemy6" parent="." instance=ExtResource("6_op41n")]
 position = Vector2(8899, 525)
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="Sprite2D2" type="Sprite2D" parent="Area2D"]
 position = Vector2(10138, 506)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("19_5wkk4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(10147, 512)
+scale = Vector2(0.2, 0.2)
+shape = SubResource("RectangleShape2D_awd4m")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("17_n370f")]
 position = Vector2(1411, 313)
@@ -436,3 +446,5 @@ scale = Vector2(3, 3)
 [node name="CharacterBody2D2" parent="." instance=ExtResource("17_n370f")]
 position = Vector2(5368, 382)
 scale = Vector2(3, 3)
+
+[connection signal="area_entered" from="Area2D" to="Player" method="_on_area_2d_area_entered"]
