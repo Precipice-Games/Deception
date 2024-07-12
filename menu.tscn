@@ -1,0 +1,102 @@
+[gd_scene load_steps=7 format=3 uid="uid://dnsb4kg8f3eqa"]
+
+[ext_resource type="Script" path="res://Menu.gd" id="1_rqdgn"]
+[ext_resource type="Texture2D" uid="uid://tde651r21dsn" path="res://art/Gablo/IMG_0570.png" id="2_mr5yj"]
+[ext_resource type="Texture2D" uid="uid://bkmmi8lgtkahy" path="res://art/Gablo/girl.png" id="3_j76ia"]
+[ext_resource type="Texture2D" uid="uid://ddnmv5ak40pq2" path="res://art/Gablo/coolll.png" id="4_fwnr3"]
+[ext_resource type="Texture2D" uid="uid://cujagd0kgelni" path="res://art/Gablo/IMG_0571.png" id="5_24lnc"]
+[ext_resource type="AudioStream" uid="uid://b2xnrx04wd2cn" path="res://art/Gablo/b0b3-ff76-4ac1-ba2f-7794eaaf4cb8.wav" id="6_oa4w8"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rqdgn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(28.6159, 16.4773)
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 4.0
+offset_top = 485.0
+offset_right = 44.0
+offset_bottom = 525.0
+scale = Vector2(28.7897, -8.37822)
+color = Color(0.561276, 0.107954, 9.62615e-08, 1)
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(310, 225)
+scale = Vector2(1.40994, 1.37642)
+texture = ExtResource("2_mr5yj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 203.0
+offset_top = -198.0
+offset_right = 349.0
+offset_bottom = -76.0
+grow_vertical = 0
+scale = Vector2(1.76, 1.76)
+
+[node name="StartButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Start!"
+
+[node name="CreditsButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Credits"
+
+[node name="QuitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Quit :("
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(688, 402)
+scale = Vector2(0.541, 0.535314)
+texture = ExtResource("3_j76ia")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1057, 518)
+scale = Vector2(0.827, 0.834584)
+texture = ExtResource("4_fwnr3")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Sprite2D"]
+position = Vector2(-551.391, 85.0723)
+scale = Vector2(0.61185, 0.603143)
+texture = ExtResource("5_24lnc")
+
+[node name="ColorRect3" type="ColorRect" parent="Sprite2D"]
+offset_left = -0.000217438
+offset_top = -454.119
+offset_right = 39.9998
+offset_bottom = -414.119
+scale = Vector2(3.02392, 1.84545)
+color = Color(0.560784, 0.109804, 0, 1)
+
+[node name="ColorRect" type="ColorRect" parent="Sprite2D"]
+offset_left = -0.000147606
+offset_top = -576.335
+offset_right = 39.9999
+offset_bottom = -536.335
+scale = Vector2(2.59614, 3.34848)
+color = Color(0, 0, 0, 1)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_oa4w8")
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CreditsButton" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/QuitButton" to="." method="_on_quit_button_pressed"]
