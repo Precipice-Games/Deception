@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://byp0y5uxifoww" path="res://art/Gablo/runbig-2.png" id="9_yp6bu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y51qr"]
-size = Vector2(14.8, 28.5)
+size = Vector2(14.8, 26)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_03uqy"]
 atlas = ExtResource("2_i643k")
@@ -630,7 +630,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5rci"]
-size = Vector2(10.309, 15.7187)
+size = Vector2(10.309, 14.3866)
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(174, 0)
@@ -640,7 +640,7 @@ collision_mask = 5
 script = ExtResource("1_swmdo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.80002, -6.25)
+position = Vector2(1.80002, -7)
 shape = SubResource("RectangleShape2D_y51qr")
 
 [node name="GameTimer" type="Timer" parent="."]
@@ -655,7 +655,7 @@ one_shot = true
 position = Vector2(2.4, -6.5)
 scale = Vector2(0.0497092, 0.0588644)
 sprite_frames = SubResource("SpriteFrames_hgi01")
-animation = &"idle3"
+animation = &"runbig"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1, 1.01317)
@@ -669,7 +669,7 @@ collision_layer = 2
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageDetector"]
-position = Vector2(1.8, -6.25)
+position = Vector2(1.8, -7)
 scale = Vector2(1.51324, 1.87674)
 shape = SubResource("RectangleShape2D_j5rci")
 
