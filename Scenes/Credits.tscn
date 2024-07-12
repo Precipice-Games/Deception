@@ -1,0 +1,48 @@
+[gd_scene load_steps=2 format=3 uid="uid://cc4w81gix3u53"]
+
+[ext_resource type="AudioStream" uid="uid://ki6scmlv146n" path="res://art/Gablo/d3b3-1330-4c0e-9583-56950e35fd61.wav" id="1_3pxap"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 650.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -74.0
+offset_top = 92.0
+offset_right = 1256.0
+offset_bottom = 575.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 23
+text = "Coders- Teo Ziolkowski, Ajay Gionta, James Meehan/Snot Rocket Games
+Story- Teo Ziolkowski, Ajay Gionta, James Meehan 
+Level Designers- Teo Ziolkowski, Ajay Gionta
+Artist- James Meehan
+Environmental Design- Teo Ziolkowski, Ajay Gionta
+Music- Free Music 
+Sprites- James Meehan, PixelFrog, The Flavare
+Playtesting- Kol, Emily, Ben, Aidan, Sophia 
+"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 273.0
+offset_top = 26.0
+offset_right = 917.0
+offset_bottom = 151.0
+theme_override_font_sizes/font_size = 39
+text = "Bagel Byte Games !"
+horizontal_alignment = 1
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_3pxap")
+autoplay = true
