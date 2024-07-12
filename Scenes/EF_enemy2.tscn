@@ -315,7 +315,8 @@ scale = Vector2(0.390768, 0.269359)
 sprite_frames = SubResource("SpriteFrames_85l8f")
 animation = &"REAL EF"
 autoplay = "REAL EF"
-frame_progress = 0.7154
+frame = 1
+frame_progress = 0.329518
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.4469, 1.88)

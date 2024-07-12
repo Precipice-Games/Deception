@@ -15,18 +15,21 @@ func _physics_process(delta):
 		FALL: fall_state(delta)
 		LAND: land_state()
 		RISE: rise_state(delta)
+	move_and_slide()
 		
 	
 func hover_state():
 	if timer.time_left == 0: timer.start
 	state = FALL
+	velocity.y = 0
 	
 func fall_state(delta):
 	animatedsprite.play("Falling")
-	position.y += 400 * delta
-	if raycast .is_colliding():
-		var collision_point = raycast.get_collision_point()
-		position.y = collision_point.y
+	velocity.y += 3000 * delta
+	if is_on_floor():
+	#if raycast .is_colliding():
+		#var collision_point = raycast.get_collision_point()
+		#position.y = collision_point.y
 		state = LAND
 		timer.start(1.0)
 
@@ -37,6 +40,6 @@ func land_state():
 	
 func rise_state(delta):
 	animatedsprite.play("Rising")
-	position.y = move_toward(position.y, start_position.y, 60 * delta)
+	velocity.y = 5000 * delta
 	if position.y == start_position.y:
 		state = HOVER

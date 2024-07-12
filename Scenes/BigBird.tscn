@@ -176,10 +176,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_beqs7"]
-radius = 35.564
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_2t1hc"]
+radius = 40.0
+height = 112.0
 
 [node name="BigBird" type="CharacterBody2D"]
+collision_layer = 4
 script = ExtResource("1_60d1p")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -191,8 +193,7 @@ animation = &"Falling"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -24)
-scale = Vector2(1.4542, 2.0547)
-shape = SubResource("CircleShape2D_beqs7")
+shape = SubResource("CapsuleShape2D_2t1hc")
 one_way_collision_margin = 0.0
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
