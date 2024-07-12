@@ -1,13 +1,17 @@
-[gd_scene load_steps=37 format=3 uid="uid://de233bnov4x8x"]
+[gd_scene load_steps=42 format=3 uid="uid://de233bnov4x8x"]
 
 [ext_resource type="Texture2D" uid="uid://ccbjq14tldsgy" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_8qoxh"]
 [ext_resource type="Texture2D" uid="uid://d0mgeb6oya76c" path="res://art/Gablo/moregrumpysback.png" id="2_3e8la"]
-[ext_resource type="PackedScene" uid="uid://ou2cl8mhmy13" path="res://Scenes/clouds.tscn" id="2_68f2i"]
+[ext_resource type="Texture2D" uid="uid://cxm7ggnoteo5" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 01.png" id="2_oqrl5"]
+[ext_resource type="Texture2D" uid="uid://bf067ey7u1a42" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="3_7balr"]
+[ext_resource type="Texture2D" uid="uid://ctecn1bufjwuu" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="3_fb6c2"]
 [ext_resource type="Script" path="res://Scenes/Clouds Layer.gd" id="3_nl12r"]
 [ext_resource type="Texture2D" uid="uid://ddfh80ua6dqak" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="3_qkt3f"]
 [ext_resource type="PackedScene" uid="uid://ha8gdesorkd1" path="res://Scenes/BackTree.tscn" id="4_3wb6j"]
 [ext_resource type="Texture2D" uid="uid://btadn2ac4bf7b" path="res://art/Gablo/thesus.png" id="4_7d6ox"]
+[ext_resource type="Texture2D" uid="uid://b8owl3k0d8kyr" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" id="4_edfci"]
 [ext_resource type="PackedScene" uid="uid://b382cxo6j70yi" path="res://Scenes/test_tile_map.tscn" id="5_4hw15"]
+[ext_resource type="Texture2D" uid="uid://ce1dkquewfeuy" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 04.png" id="5_wu286"]
 [ext_resource type="PackedScene" uid="uid://bp54uo6isb3k7" path="res://Scenes/player.tscn" id="6_2mjif"]
 [ext_resource type="PackedScene" uid="uid://6lvwgmsxfwj0" path="res://Scenes/enemy_1.tscn" id="6_op41n"]
 [ext_resource type="Texture2D" uid="uid://dtq64efb8uxd1" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 03.png" id="8_7ggsl"]
@@ -24,6 +28,26 @@
 [ext_resource type="Texture2D" uid="uid://u7wrd25m46qv" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 02.png" id="19_2w7a3"]
 [ext_resource type="Texture2D" uid="uid://bovqycgqy773o" path="res://art/Gablo/finish.png" id="19_5wkk4"]
 [ext_resource type="Texture2D" uid="uid://chkyk17lmj1rg" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 04.png" id="20_xa1at"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m66b3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_oqrl5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_7balr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_edfci")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_wu286")
+}],
+"loop": true,
+"name": &"big1",
+"speed": 5.0
+}]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_s0adh"]
 atlas = ExtResource("14_xv7h3")
@@ -197,22 +221,45 @@ scale = Vector2(10.0807, 5.04688)
 texture = ExtResource("1_8qoxh")
 centered = false
 
-[node name="CharacterBody2D2" parent="ParallaxBackground/Sky/Sprite2D" instance=ExtResource("17_n370f")]
-position = Vector2(380.033, 78.4643)
-scale = Vector2(0.0991995, 0.198142)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(824, 440)
+scale = Vector2(0.980497, 1.00819)
+sprite_frames = SubResource("SpriteFrames_m66b3")
+animation = &"big1"
+autoplay = "big1"
+frame_progress = 0.797472
 
 [node name="Clouds Layer" type="CanvasLayer" parent="ParallaxBackground" node_paths=PackedStringArray("player")]
 script = ExtResource("3_nl12r")
 player = NodePath("../../Player")
 
-[node name="Clouds" parent="ParallaxBackground/Clouds Layer" instance=ExtResource("2_68f2i")]
-position = Vector2(822, 285)
+[node name="SmallCloud" type="Sprite2D" parent="ParallaxBackground/Clouds Layer"]
+position = Vector2(584, 72)
+texture = ExtResource("3_fb6c2")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Clouds Layer/SmallCloud"]
+position = Vector2(46, -3)
 
 [node name="BigClouds" type="Sprite2D" parent="ParallaxBackground/Clouds Layer"]
-position = Vector2(-224, 249)
+position = Vector2(224, 162.5)
 texture = ExtResource("3_qkt3f")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Clouds Layer/BigClouds"]
+position = Vector2(224, 32)
+
+[node name="BigClouds2" type="Sprite2D" parent="ParallaxBackground/Clouds Layer"]
+position = Vector2(672, 162.5)
+texture = ExtResource("3_qkt3f")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Clouds Layer/BigClouds2"]
+position = Vector2(224, 40)
+
+[node name="BigClouds3" type="Sprite2D" parent="ParallaxBackground/Clouds Layer"]
+position = Vector2(1120, 162.5)
+texture = ExtResource("3_qkt3f")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Clouds Layer/BigClouds3"]
+position = Vector2(240, 40)
 
 [node name="PalmTrees" type="ParallaxLayer" parent="ParallaxBackground"]
 
@@ -386,4 +433,6 @@ texture = ExtResource("19_5wkk4")
 position = Vector2(1411, 313)
 scale = Vector2(3, 3)
 
-[connection signal="screen_exited" from="ParallaxBackground/Clouds Layer/BigClouds/VisibleOnScreenNotifier2D" to="ParallaxBackground/Clouds Layer" method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[node name="CharacterBody2D2" parent="." instance=ExtResource("17_n370f")]
+position = Vector2(5368, 382)
+scale = Vector2(3, 3)

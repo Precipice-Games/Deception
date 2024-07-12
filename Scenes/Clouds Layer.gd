@@ -1,13 +1,15 @@
 extends CanvasLayer
 
-@export var cloud_speed = 50
+@export var cloud_speed = 500
 @export var player:CharacterBody2D
 var cloud_offset = 0
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	for child in get_children():
+		var notifier := child.get_node("./VisibleOnScreenNotifier2D") as VisibleOnScreenNotifier2D
+		notifier.screen_exited.connect(_on_visible_on_screen_notifier_2d_screen_exited.bind(notifier.get_parent()))
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -28,7 +30,14 @@ func scroll_clouds(delta):
 	
 
 
-func _on_visible_on_screen_notifier_2d_screen_exited(obstacle:Node2D):
-	if obstacle.name.begins_with("BigClouds"):
-		pass
+func _on_visible_on_screen_notifier_2d_screen_exited(cloud):
+	print(cloud.name, " is off screen")
+	cloud.position.x += 3 * cloud.get_rect().size.x
+	#$Clouds.position.x += 1152
+	#$BigClouds.position.x += 1152
+	#$BigClouds2.position.x += 1152
+	#$BigClouds3.position.x += 1152
+	
+	
+	
 	
