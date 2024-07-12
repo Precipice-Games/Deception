@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc4w81gix3u53"]
+[gd_scene load_steps=4 format=3 uid="uid://cc4w81gix3u53"]
 
 [ext_resource type="AudioStream" uid="uid://ki6scmlv146n" path="res://art/Gablo/d3b3-1330-4c0e-9583-56950e35fd61.wav" id="1_3pxap"]
+[ext_resource type="Texture2D" uid="uid://cjorfd3skener" path="res://art/Gablo/soy (1).png" id="1_qejtq"]
+[ext_resource type="Texture2D" uid="uid://xu4tdxelvwb8" path="res://art/Gablo/trhobinrob.png" id="2_5juor"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -8,6 +10,17 @@
 offset_right = 1152.0
 offset_bottom = 650.0
 color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(886, 495)
+scale = Vector2(1.014, 0.786076)
+skew = -0.0872665
+texture = ExtResource("1_qejtq")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(162.5, 391.25)
+scale = Vector2(0.762, 0.75937)
+texture = ExtResource("2_5juor")
 
 [node name="Label" type="Label" parent="."]
 anchors_preset = 8

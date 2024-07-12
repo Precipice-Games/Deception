@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://b6ubmlmackh6p" path="res://art/Gablo/runfixed-2.png" id="14_72thf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y51qr"]
-size = Vector2(14.8, 28.5)
+size = Vector2(14.8, 26.5)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_03uqy"]
 atlas = ExtResource("2_tiy0e")
@@ -575,7 +575,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j5rci"]
-size = Vector2(10.309, 15.7187)
+size = Vector2(10.309, 14.5731)
 
 [node name="Playerlevel2" type="CharacterBody2D"]
 position = Vector2(601, 372)
@@ -585,7 +585,7 @@ collision_mask = 5
 script = ExtResource("1_8fmus")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1.80002, -6.25)
+position = Vector2(1.80002, -5.25)
 shape = SubResource("RectangleShape2D_y51qr")
 
 [node name="GameTimer" type="Timer" parent="."]
@@ -609,7 +609,7 @@ collision_layer = 2
 collision_mask = 12
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DamageDetector"]
-position = Vector2(1.8, -6.25)
+position = Vector2(1.79999, -5.325)
 scale = Vector2(1.51324, 1.87674)
 shape = SubResource("RectangleShape2D_j5rci")
 

@@ -211,7 +211,7 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_85l8f")
 animation = &"attack"
 autoplay = "attack"
-frame_progress = 0.398472
+frame_progress = 0.973375
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.0069, 1)
