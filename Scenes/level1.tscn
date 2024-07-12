@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://de233bnov4x8x"]
+[gd_scene load_steps=43 format=3 uid="uid://de233bnov4x8x"]
 
 [ext_resource type="Texture2D" uid="uid://ccbjq14tldsgy" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_8qoxh"]
 [ext_resource type="Texture2D" uid="uid://d0mgeb6oya76c" path="res://art/Gablo/moregrumpysback.png" id="2_3e8la"]
@@ -27,6 +27,7 @@
 [ext_resource type="Texture2D" uid="uid://u7wrd25m46qv" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 02.png" id="19_2w7a3"]
 [ext_resource type="Texture2D" uid="uid://bovqycgqy773o" path="res://art/Gablo/finish.png" id="19_5wkk4"]
 [ext_resource type="Texture2D" uid="uid://chkyk17lmj1rg" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Back Palm Trees/Back Palm Tree Regular 04.png" id="20_xa1at"]
+[ext_resource type="AudioStream" uid="uid://ki6scmlv146n" path="res://art/Gablo/d3b3-1330-4c0e-9583-56950e35fd61.wav" id="28_7m8tv"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m66b3"]
 animations = [{
@@ -492,5 +493,9 @@ scale = Vector2(3, 3)
 [node name="CharacterBody2D2" parent="." instance=ExtResource("17_n370f")]
 position = Vector2(5368, 382)
 scale = Vector2(3, 3)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("28_7m8tv")
+autoplay = true
 
 [connection signal="body_entered" from="Goal" to="Player" method="_on_area_2d_body_entered"]
