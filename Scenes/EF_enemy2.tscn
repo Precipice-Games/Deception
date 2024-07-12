@@ -1,9 +1,10 @@
-[gd_scene load_steps=34 format=3 uid="uid://dq6gp6wqeimvs"]
+[gd_scene load_steps=40 format=3 uid="uid://dq6gp6wqeimvs"]
 
 [ext_resource type="Script" path="res://Scenes/EF_enemy2.gd" id="1_d5173"]
 [ext_resource type="PackedScene" uid="uid://bwrrytbgf1xg5" path="res://Scenes/bulletshooter.tscn" id="2_aasi6"]
 [ext_resource type="Texture2D" uid="uid://cx10qhshffx8w" path="res://art/Pixel Adventure 2/Enemies/Plant/Attack (44x42).png" id="3_hud48"]
 [ext_resource type="Texture2D" uid="uid://dede170d6ugoa" path="res://art/Pixel Adventure 2/Enemies/Plant/Idle (44x42).png" id="4_w68cs"]
+[ext_resource type="Texture2D" uid="uid://g0llyc8vd60f" path="res://art/Gablo/peeeppeee.png" id="5_ajrkx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g8l1o"]
 atlas = ExtResource("3_hud48")
@@ -36,6 +37,26 @@ region = Rect2(264, 0, 44, 42)
 [sub_resource type="AtlasTexture" id="AtlasTexture_oxabq"]
 atlas = ExtResource("3_hud48")
 region = Rect2(308, 0, 44, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_av836"]
+atlas = ExtResource("5_ajrkx")
+region = Rect2(0, 0, 500, 667)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h5b4g"]
+atlas = ExtResource("5_ajrkx")
+region = Rect2(500, 0, 500, 667)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lu8u3"]
+atlas = ExtResource("5_ajrkx")
+region = Rect2(1000, 0, 500, 667)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yxxs7"]
+atlas = ExtResource("5_ajrkx")
+region = Rect2(0, 667, 500, 667)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm3tf"]
+atlas = ExtResource("5_ajrkx")
+region = Rect2(500, 667, 500, 667)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3r5d"]
 atlas = ExtResource("3_hud48")
@@ -143,6 +164,26 @@ animations = [{
 "loop": true,
 "name": &"EF",
 "speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_av836")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h5b4g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lu8u3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yxxs7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm3tf")
+}],
+"loop": true,
+"name": &"REAL EF",
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -269,13 +310,15 @@ bulletshooter_scene = ExtResource("2_aasi6")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(1, -2)
+scale = Vector2(0.390768, 0.269359)
 sprite_frames = SubResource("SpriteFrames_85l8f")
-animation = &"EF"
-autoplay = "EF"
-frame_progress = 0.574797
+animation = &"REAL EF"
+autoplay = "REAL EF"
+frame_progress = 0.7154
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-scale = Vector2(1.0069, 1)
+scale = Vector2(1.4469, 1.88)
 shape = SubResource("RectangleShape2D_h6e0w")
 
 [node name="BulletCooldown" type="Timer" parent="."]
