@@ -1,4 +1,4 @@
-[gd_scene load_steps=87 format=3 uid="uid://bp54uo6isb3k7"]
+[gd_scene load_steps=95 format=3 uid="uid://bp54uo6isb3k7"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_swmdo"]
 [ext_resource type="Texture2D" uid="uid://bptuu4l5ymcvy" path="res://art/Gablo/jumpfixed.png" id="2_i643k"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://bflb8qqcvkiel" path="res://art/Gablo/runreidid-2.png" id="6_dw1ql"]
 [ext_resource type="Texture2D" uid="uid://c5qk3y5ii1yqn" path="res://art/Gablo/punchypunch new.png" id="7_0w77s"]
 [ext_resource type="Texture2D" uid="uid://cnnhuhr2pd73a" path="res://art/Gablo/Gablo (nw1).png" id="7_7bogj"]
+[ext_resource type="Texture2D" uid="uid://c6yrc8cc80h8x" path="res://art/Gablo/Gablo newest(1).png" id="7_iya30"]
 [ext_resource type="Texture2D" uid="uid://b2smeuhodi1ky" path="res://art/Gablo/pleaseworkpunch copy.png" id="8_owbgh"]
 [ext_resource type="Texture2D" uid="uid://b6ubmlmackh6p" path="res://art/Gablo/runfixed-2.png" id="9_55oau"]
 [ext_resource type="Texture2D" uid="uid://byp0y5uxifoww" path="res://art/Gablo/runbig-2.png" id="9_yp6bu"]
@@ -121,6 +122,34 @@ region = Rect2(500, 300, 250, 300)
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ahph"]
 atlas = ExtResource("5_6ioeg")
 region = Rect2(0, 600, 250, 300)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oura3"]
+atlas = ExtResource("7_iya30")
+region = Rect2(0, 0, 500, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3lu4"]
+atlas = ExtResource("7_iya30")
+region = Rect2(500, 0, 500, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75gsn"]
+atlas = ExtResource("7_iya30")
+region = Rect2(0, 400, 500, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fab4l"]
+atlas = ExtResource("7_iya30")
+region = Rect2(500, 400, 500, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nehg8"]
+atlas = ExtResource("7_iya30")
+region = Rect2(0, 800, 500, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vf2b"]
+atlas = ExtResource("7_iya30")
+region = Rect2(500, 800, 500, 400)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n2vld"]
+atlas = ExtResource("7_iya30")
+region = Rect2(0, 1200, 500, 400)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_miias"]
 atlas = ExtResource("7_7bogj")
@@ -401,6 +430,32 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_oura3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x3lu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_75gsn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fab4l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nehg8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vf2b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n2vld")
+}],
+"loop": true,
+"name": &"idle3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_miias")
 }, {
 "duration": 1.0,
@@ -600,7 +655,7 @@ one_shot = true
 position = Vector2(2.4, -6.5)
 scale = Vector2(0.0497092, 0.0588644)
 sprite_frames = SubResource("SpriteFrames_hgi01")
-animation = &"idol"
+animation = &"idle3"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 scale = Vector2(1, 1.01317)
@@ -621,7 +676,11 @@ shape = SubResource("RectangleShape2D_j5rci")
 [node name="directionSprintTimer" type="Timer" parent="."]
 wait_time = 0.75
 
+[node name="JumpTimer" type="Timer" parent="."]
+wait_time = 0.5
+
 [connection signal="timeout" from="canDashTimer" to="." method="_on_can_dash_timer_timeout"]
 [connection signal="area_entered" from="DamageDetector" to="." method="_on_damage_detector_area_entered"]
 [connection signal="body_entered" from="DamageDetector" to="." method="_on_damage_detector_area_entered"]
 [connection signal="timeout" from="directionSprintTimer" to="." method="_on_direction_sprint_timer_timeout"]
+[connection signal="timeout" from="JumpTimer" to="." method="_on_jump_timer_timeout"]

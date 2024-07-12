@@ -23,7 +23,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var sprint = false
 
 func _physics_process(delta):
-	print(self.position)
 	
 	if global_position.y > fall:
 		print(global_position.y, " ", fall)
@@ -65,7 +64,7 @@ func _input(event):
 		isrunning = true
 		
 	if direction == 0:
-		$AnimatedSprite2D.play("idol")
+		$AnimatedSprite2D.play("idle3")
 	
 	if event.is_action_pressed("punch"):
 		$AnimatedSprite2D.play("punch")
@@ -76,6 +75,7 @@ func _input(event):
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		$AnimatedSprite2D.play("Jump3")
+		$JumpTimer.start()
 		
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -113,3 +113,7 @@ func _on_direction_sprint_timer_timeout():
 		SPEED = walkSPEED
 		isrunning=false
 		
+
+
+func _on_jump_timer_timeout():
+	$AnimatedSprite2D.play("idle3")
