@@ -31,10 +31,12 @@ func _physics_process(delta):
 	
 	
 	if Input.is_action_pressed("dash") and not is_on_floor() and Input.is_action_pressed("move_right") and canDash==true:
+		$AnimatedSprite2D.play("punch")
 		position.x += 75
 		canDash=false
 		$canDashTimer.start(1)
 	if Input.is_action_pressed("dash") and not is_on_floor() and Input.is_action_pressed("move_left") and canDash==true:
+		$AnimatedSprite2D.play("punch")
 		position.x -= 75
 		canDash=false
 		$canDashTimer.start(1)
