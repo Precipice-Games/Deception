@@ -23,6 +23,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var sprint = false
 
 func _physics_process(delta):
+	print(self.position)
 	
 	if global_position.y > fall:
 		print(global_position.y, " ", fall)
@@ -47,6 +48,22 @@ func _physics_process(delta):
 
 
 func _input(event):
+	
+	
+	
+	if event.is_action_pressed("move_left"):
+		direction = -1
+		isrunning = true
+		$AnimatedSprite2D.flip_h = true
+		$AnimatedSprite2D.play("runbig")
+		
+		
+	if event.is_action_pressed("move_right"):
+		direction = 1
+		$AnimatedSprite2D.flip_h = false
+		$AnimatedSprite2D.play("runbig")
+		isrunning = true
+		
 	if direction == 0:
 		$AnimatedSprite2D.play("idol")
 	
@@ -86,7 +103,6 @@ func _on_can_dash_timer_timeout():
 
 
 func _on_damage_detector_area_entered(area):
-	print(area.name)
 	if area.is_in_group("harmful"):
 		get_tree().change_scene_to_file("res://Scenes/level1.tscn")
 	
@@ -96,4 +112,4 @@ func _on_direction_sprint_timer_timeout():
 	if !Input.is_action_pressed("move_right") or !Input.is_action_pressed("move_left"):
 		SPEED = walkSPEED
 		isrunning=false
-		print("got here10")
+		
