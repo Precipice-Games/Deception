@@ -26,7 +26,7 @@ func _physics_process(delta):
 	
 	if global_position.y > fall:
 		print(global_position.y, " ", fall)
-		get_tree().change_scene_to_file("res://Scenes/level1.tscn")
+		game_over()
 	
 	
 	
@@ -93,8 +93,8 @@ func _input(event):
 #Add sprint code from ajay laptop computer
 	
 
-
-
+func game_over():
+	get_tree().reload_current_scene()
 
 
 func _on_can_dash_timer_timeout():
@@ -104,8 +104,7 @@ func _on_can_dash_timer_timeout():
 
 func _on_damage_detector_area_entered(area):
 	if area.is_in_group("harmful"):
-		get_tree().change_scene_to_file("res://Scenes/level1.tscn")
-	
+		game_over()
 
 
 func _on_direction_sprint_timer_timeout():
@@ -119,5 +118,8 @@ func _on_jump_timer_timeout():
 	$AnimatedSprite2D.play("idle3")
 
 
-func _on_area_2d_area_entered(area):
-	get_tree().change_scene_to_file("res://Scenes/level2.tscn")
+
+
+
+func _on_area_2d_body_entered(body):
+	get_tree().change_scene_to_file("res://Scenes/level_2.tscn")

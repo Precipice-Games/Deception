@@ -1,7 +1,6 @@
 extends CanvasLayer
 
-@export var cloud_speed = 500
-@export var player:CharacterBody2D
+@export var cloud_speed = 250
 var cloud_offset = 0
 
 
@@ -32,7 +31,7 @@ func scroll_clouds(delta):
 
 func _on_visible_on_screen_notifier_2d_screen_exited(cloud):
 	print(cloud.name, " is off screen")
-	cloud.position.x += 3 * cloud.get_rect().size.x
+	cloud.position.x += 3 * (cloud.get_rect().size.x)*10
 	#$Clouds.position.x += 1152
 	#$BigClouds.position.x += 1152
 	#$BigClouds2.position.x += 1152

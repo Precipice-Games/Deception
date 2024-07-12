@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=3 uid="uid://de233bnov4x8x"]
+[gd_scene load_steps=42 format=3 uid="uid://de233bnov4x8x"]
 
 [ext_resource type="Texture2D" uid="uid://ccbjq14tldsgy" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_8qoxh"]
 [ext_resource type="Texture2D" uid="uid://d0mgeb6oya76c" path="res://art/Gablo/moregrumpysback.png" id="2_3e8la"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://bf067ey7u1a42" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 02.png" id="3_7balr"]
 [ext_resource type="Texture2D" uid="uid://ctecn1bufjwuu" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Small Cloud 1.png" id="3_fb6c2"]
 [ext_resource type="Script" path="res://Scenes/Clouds Layer.gd" id="3_nl12r"]
-[ext_resource type="Texture2D" uid="uid://ddfh80ua6dqak" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Big Clouds.png" id="3_qkt3f"]
 [ext_resource type="PackedScene" uid="uid://ha8gdesorkd1" path="res://Scenes/BackTree.tscn" id="4_3wb6j"]
 [ext_resource type="Texture2D" uid="uid://btadn2ac4bf7b" path="res://art/Gablo/thesus.png" id="4_7d6ox"]
 [ext_resource type="Texture2D" uid="uid://b8owl3k0d8kyr" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/Water Reflect Big 03.png" id="4_edfci"]
@@ -232,37 +231,81 @@ animation = &"big1"
 autoplay = "big1"
 frame_progress = 0.797472
 
-[node name="Clouds Layer" type="CanvasLayer" parent="ParallaxBackground" node_paths=PackedStringArray("player")]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(376, 440)
+scale = Vector2(0.980497, 1.00819)
+sprite_frames = SubResource("SpriteFrames_m66b3")
+animation = &"big1"
+autoplay = "big1"
+frame_progress = 0.797472
+
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(224, 440)
+scale = Vector2(0.980497, 1.00819)
+sprite_frames = SubResource("SpriteFrames_m66b3")
+animation = &"big1"
+autoplay = "big1"
+frame_progress = 0.797472
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(456, 440)
+scale = Vector2(0.980497, 1.00819)
+sprite_frames = SubResource("SpriteFrames_m66b3")
+animation = &"big1"
+autoplay = "big1"
+frame_progress = 0.797472
+
+[node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(104, 440)
+scale = Vector2(0.980497, 1.00819)
+sprite_frames = SubResource("SpriteFrames_m66b3")
+animation = &"big1"
+autoplay = "big1"
+frame_progress = 0.797472
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(552, 440)
+scale = Vector2(0.980497, 1.00819)
+sprite_frames = SubResource("SpriteFrames_m66b3")
+animation = &"big1"
+autoplay = "big1"
+frame_progress = 0.797472
+
+[node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(672, 440)
+scale = Vector2(0.980497, 1.00819)
+sprite_frames = SubResource("SpriteFrames_m66b3")
+animation = &"big1"
+autoplay = "big1"
+frame_progress = 0.797472
+
+[node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(-8, 440)
+scale = Vector2(0.980497, 1.00819)
+sprite_frames = SubResource("SpriteFrames_m66b3")
+animation = &"big1"
+autoplay = "big1"
+frame_progress = 0.797472
+
+[node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="ParallaxBackground/Sky"]
+position = Vector2(968, 440)
+scale = Vector2(0.980497, 1.00819)
+sprite_frames = SubResource("SpriteFrames_m66b3")
+animation = &"big1"
+autoplay = "big1"
+frame_progress = 0.797472
+
+[node name="Clouds Layer" type="CanvasLayer" parent="ParallaxBackground"]
 script = ExtResource("3_nl12r")
-player = NodePath("../../Player")
 
 [node name="SmallCloud" type="Sprite2D" parent="ParallaxBackground/Clouds Layer"]
-position = Vector2(584, 72)
+texture_filter = 1
+position = Vector2(504, 128)
+scale = Vector2(7.05405, 7.33333)
 texture = ExtResource("3_fb6c2")
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Clouds Layer/SmallCloud"]
 position = Vector2(46, -3)
-
-[node name="BigClouds" type="Sprite2D" parent="ParallaxBackground/Clouds Layer"]
-position = Vector2(224, 162.5)
-texture = ExtResource("3_qkt3f")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Clouds Layer/BigClouds"]
-position = Vector2(224, 32)
-
-[node name="BigClouds2" type="Sprite2D" parent="ParallaxBackground/Clouds Layer"]
-position = Vector2(672, 162.5)
-texture = ExtResource("3_qkt3f")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Clouds Layer/BigClouds2"]
-position = Vector2(224, 40)
-
-[node name="BigClouds3" type="Sprite2D" parent="ParallaxBackground/Clouds Layer"]
-position = Vector2(1120, 162.5)
-texture = ExtResource("3_qkt3f")
-
-[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="ParallaxBackground/Clouds Layer/BigClouds3"]
-position = Vector2(240, 40)
 
 [node name="PalmTrees" type="ParallaxLayer" parent="ParallaxBackground"]
 
@@ -427,14 +470,17 @@ position = Vector2(3407, 702)
 [node name="Enemy6" parent="." instance=ExtResource("6_op41n")]
 position = Vector2(8899, 525)
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Goal" type="Area2D" parent="."]
+position = Vector2(-9, 0)
+collision_layer = 8
+collision_mask = 2
 
-[node name="Sprite2D2" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D2" type="Sprite2D" parent="Goal"]
 position = Vector2(10138, 506)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("19_5wkk4")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2(10147, 512)
 scale = Vector2(0.2, 0.2)
 shape = SubResource("RectangleShape2D_awd4m")
@@ -447,4 +493,4 @@ scale = Vector2(3, 3)
 position = Vector2(5368, 382)
 scale = Vector2(3, 3)
 
-[connection signal="area_entered" from="Area2D" to="Player" method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Goal" to="Player" method="_on_area_2d_body_entered"]
