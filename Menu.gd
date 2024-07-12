@@ -5,7 +5,7 @@ func _ready():
 
 
 func _on_start_button_pressed():
-	get_tree().change_scene_to_file("res://Scenes/level1.tscn")
+	get_tree().change_scene_to_file("res://node.tscn")
 
 
 

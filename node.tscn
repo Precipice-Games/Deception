@@ -1,0 +1,55 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsxflxhjuq5u0"]
+
+[ext_resource type="Script" path="res://story.gd" id="1_o8i8n"]
+[ext_resource type="AudioStream" uid="uid://b2xnrx04wd2cn" path="res://art/Gablo/b0b3-ff76-4ac1-ba2f-7794eaaf4cb8.wav" id="2_wfw0n"]
+
+[node name="Story" type="Node"]
+script = ExtResource("1_o8i8n")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 646.0
+scale = Vector2(1.64, 1.24)
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.5
+offset_right = 300.5
+offset_bottom = 105.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 41
+text = "                  The Story!"
+vertical_alignment = 1
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 10.0
+offset_top = 163.0
+offset_right = 1151.0
+offset_bottom = 633.0
+theme_override_font_sizes/font_size = 20
+text = "You are Gablo, he is a blue critter dude. His job is to keep the earth spinning. After working for 3700 years 
+consecutively Gablo is tired and wants to take his two sick days provided by his company every 100 years. 
+His boss is not happy to find Gablo chilling in the Bahamas instead of 
+being at work to keep the earth spinning on the y axis. Without him keeping the flat earth spinning reality 
+begins to crumble. The boss gives Gablo two days to get back to work and if he can't make
+ it back in time Gablo will be fired. Gablo hurries back to work but finds himself in a predicament. 
+While Gablo ventures back to work he meets his perfect girl Mimzy. 
+She is a lazy, laid back loser. But despite this Gablo is envious of her low intensity laid back life, compared to 
+his high intensity high stress life. Gablo must decide what is more important, saving the world or being happy. 
+"
+
+[node name="Button" type="Button" parent="."]
+offset_left = 463.0
+offset_top = 477.0
+offset_right = 663.0
+offset_bottom = 526.0
+text = "OKI DOKI!"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_wfw0n")
+autoplay = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
