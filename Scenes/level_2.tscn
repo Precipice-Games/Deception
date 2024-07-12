@@ -101,7 +101,7 @@ scale = Vector2(0.554, 0.492878)
 sprite_frames = SubResource("SpriteFrames_l5oom")
 
 [node name="Playerlevel2" parent="." instance=ExtResource("3_bfrrt")]
-position = Vector2(8086, 579)
+position = Vector2(86, 579)
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
@@ -128,37 +128,37 @@ position = Vector2(3343, 660)
 position = Vector2(4980, 715)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("11_6wpgb")]
-position = Vector2(7416, 200)
+position = Vector2(7416, 300)
 scale = Vector2(3, 3)
 
 [node name="CharacterBody2D2" parent="." instance=ExtResource("11_6wpgb")]
-position = Vector2(7829, 200)
+position = Vector2(7829, 300)
 scale = Vector2(3, 3)
 
 [node name="CharacterBody2D3" parent="." instance=ExtResource("11_6wpgb")]
-position = Vector2(7635, 200)
+position = Vector2(7635, 300)
 scale = Vector2(3, 3)
 
 [node name="CharacterBody2D4" parent="." instance=ExtResource("11_6wpgb")]
-position = Vector2(8205, 200)
+position = Vector2(8205, 300)
 scale = Vector2(3, 3)
 
 [node name="CharacterBody2D5" parent="." instance=ExtResource("11_6wpgb")]
-position = Vector2(8003, 200)
+position = Vector2(8003, 300)
 scale = Vector2(3, 3)
 
 [node name="CharacterBody2D6" parent="." instance=ExtResource("11_6wpgb")]
-position = Vector2(8555, 200)
+position = Vector2(8555, 300)
 scale = Vector2(3, 3)
 
 [node name="CharacterBody2D7" parent="." instance=ExtResource("11_6wpgb")]
-position = Vector2(8366, 200)
+position = Vector2(8366, 300)
 scale = Vector2(3, 3)
 
 [node name="CharacterBody2D8" parent="." instance=ExtResource("11_6wpgb")]
-position = Vector2(8903, 200)
+position = Vector2(8903, 300)
 scale = Vector2(3, 3)
 
 [node name="CharacterBody2D9" parent="." instance=ExtResource("11_6wpgb")]
-position = Vector2(8734, 200)
+position = Vector2(8734, 300)
 scale = Vector2(3, 3)

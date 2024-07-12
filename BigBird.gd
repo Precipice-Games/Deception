@@ -4,7 +4,8 @@ enum {HOVER, FALL, LAND, RISE}
 
 var state = HOVER
 
-@onready var start_position = global_position
+@export var big_gravity:int = 6666
+@onready var start_position = position
 @onready var timer = $Timer
 @onready var raycast: = $RayCast2D
 @onready var animatedsprite = $AnimatedSprite2D
@@ -25,7 +26,7 @@ func hover_state():
 	
 func fall_state(delta):
 	animatedsprite.play("Falling")
-	velocity.y += 3000 * delta
+	velocity.y += big_gravity * delta
 	if is_on_floor():
 	#if raycast .is_colliding():
 		#var collision_point = raycast.get_collision_point()
@@ -40,6 +41,6 @@ func land_state():
 	
 func rise_state(delta):
 	animatedsprite.play("Rising")
-	velocity.y = 5000 * delta
-	if position.y == start_position.y:
+	velocity.y = -big_gravity/2 * delta
+	if position.y <= start_position.y:
 		state = HOVER
