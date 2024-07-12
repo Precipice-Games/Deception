@@ -107,10 +107,55 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_l4lgx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3r5d")
 }],
 "loop": true,
 "name": &"attack",
-"speed": 3.0
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -166,8 +211,7 @@ metadata/_edit_group_ = true
 sprite_frames = SubResource("SpriteFrames_85l8f")
 animation = &"attack"
 autoplay = "attack"
-frame = 4
-frame_progress = 0.63108
+frame_progress = 0.398472
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(1.0069, 1)

@@ -11,7 +11,7 @@ extends CharacterBody2D
 @export var sprintSPEED =500.0
 @export var JUMP_VELOCITY = -400.0
 var dashing = false
-var SPEED = walkSPEED
+var SPEED = sprintSPEED #was walkSPEED
 var canDash= true
 var isrunning = false
 var direction = 0
@@ -73,38 +73,7 @@ func _input(event):
 		return # returning gets out of the function immediately and does not process any of the following code
 
 
-		if is_on_floor():
-			SPEED = sprintSPEED
-	if event.is_action_pressed("move_right"):
-		$AnimatedSprite2D.flip_h = false
-		$AnimatedSprite2D.play("runbig")
-		isrunning = true
-		if $GameTimer.is_stopped():
-			print("one press")
-			$GameTimer.start()
-		else:
-			print("sprint")
-			sprint = true
-			$GameTimer.stop()
-			$sprintTimer.start(2)
-			SPEED=sprintSPEED
-	if event.is_action_released("move_right") and $sprintTimer.is_stopped():
-		SPEED = walkSPEED
-	if event.is_action_pressed("move_left"):
-		isrunning = true
-		$AnimatedSprite2D.flip_h = true
-		$AnimatedSprite2D.play("runbig")
-		if $GameTimer.is_stopped():
-			#print("one press")
-			$GameTimer.start()
-		else:
-			print("dash")
-			sprint = true
-			$GameTimer.stop()
-			$sprintTimer.start(2)
-			SPEED=sprintSPEED
-	if event.is_action_released("move_left") and $sprintTimer.is_stopped():
-		SPEED = walkSPEED
+#Add sprint code from ajay laptop computer
 	
 
 
@@ -121,3 +90,10 @@ func _on_damage_detector_area_entered(area):
 	if area.is_in_group("harmful"):
 		get_tree().change_scene_to_file("res://Scenes/level1.tscn")
 	
+
+
+func _on_direction_sprint_timer_timeout():
+	if !Input.is_action_pressed("move_right") or !Input.is_action_pressed("move_left"):
+		SPEED = walkSPEED
+		isrunning=false
+		print("got here10")

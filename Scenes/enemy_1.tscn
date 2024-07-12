@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://6lvwgmsxfwj0"]
+[gd_scene load_steps=32 format=3 uid="uid://6lvwgmsxfwj0"]
 
 [ext_resource type="Texture2D" uid="uid://dyci18bmbsvkf" path="res://art/Pixel Adventure 2/Enemies/AngryPig/Idle (36x30).png" id="1_6hmee"]
 [ext_resource type="Script" path="res://art/enemy_1.gd" id="1_tujxm"]
@@ -193,8 +193,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_3jv4s"]
-size = Vector2(31, 31)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egdwy"]
+height = 23.5
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ee3gv"]
+size = Vector2(16.875, 5.66039)
 
 [node name="Enemy1" type="Area2D" groups=["harmful"]]
 scale = Vector2(1.6, 1.41333)
@@ -210,9 +213,16 @@ autoplay = "Walk"
 frame_progress = 0.520822
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_3jv4s")
+position = Vector2(0.5, 1.375)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_egdwy")
 
 [node name="FloorCheck" type="RayCast2D" parent="."]
 position = Vector2(-16, 0)
 target_position = Vector2(0, 25)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(1.5625, -9.19814)
+shape = SubResource("RectangleShape2D_ee3gv")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

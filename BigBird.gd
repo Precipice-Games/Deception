@@ -23,7 +23,7 @@ func hover_state():
 	
 func fall_state(delta):
 	animatedsprite.play("Falling")
-	position.y += 100 * delta
+	position.y += 400 * delta
 	if raycast .is_colliding():
 		var collision_point = raycast.get_collision_point()
 		position.y = collision_point.y
@@ -37,6 +37,6 @@ func land_state():
 	
 func rise_state(delta):
 	animatedsprite.play("Rising")
-	position.y = move_toward(position.y, start_position.y, 20 * delta)
+	position.y = move_toward(position.y, start_position.y, 60 * delta)
 	if position.y == start_position.y:
 		state = HOVER

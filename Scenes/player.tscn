@@ -618,6 +618,10 @@ position = Vector2(1.8, -6.25)
 scale = Vector2(1.51324, 1.87674)
 shape = SubResource("RectangleShape2D_j5rci")
 
+[node name="directionSprintTimer" type="Timer" parent="."]
+wait_time = 0.75
+
 [connection signal="timeout" from="canDashTimer" to="." method="_on_can_dash_timer_timeout"]
 [connection signal="area_entered" from="DamageDetector" to="." method="_on_damage_detector_area_entered"]
 [connection signal="body_entered" from="DamageDetector" to="." method="_on_damage_detector_area_entered"]
+[connection signal="timeout" from="directionSprintTimer" to="." method="_on_direction_sprint_timer_timeout"]
