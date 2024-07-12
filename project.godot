@@ -10,10 +10,11 @@ config_version=5
 
 [application]
 
-config/name="Clocked-In"
-run/main_scene="res://Scenes/test_tile_map.tscn"
+config/name="Clocked-In!"
+config/description="Help Gablo get the girl and avoid work from his evil boss"
+run/main_scene="res://Scenes/menu.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="res://gabloimage.png"
 
 [display]
 
