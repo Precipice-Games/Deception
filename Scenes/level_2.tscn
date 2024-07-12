@@ -1,12 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://khddxe551qkj"]
+[gd_scene load_steps=13 format=3 uid="uid://khddxe551qkj"]
 
 [ext_resource type="Texture2D" uid="uid://ba8ooa5tw57hm" path="res://art/Gablo/Forest Concept.png" id="1_edi45"]
 [ext_resource type="PackedScene" uid="uid://dtv28yytj8ggf" path="res://tiles_level_2.tscn" id="2_6cfwf"]
 [ext_resource type="Texture2D" uid="uid://bnpp7tay06tve" path="res://art/Gablo/New Piskel (1).png" id="2_iw0sa"]
 [ext_resource type="PackedScene" uid="uid://cndfgs4b6i0kc" path="res://Scenes/level2player.tscn" id="3_bfrrt"]
+[ext_resource type="Texture2D" uid="uid://6ce7u081obki" path="res://art/Gablo/trhobinrob.png" id="3_bnycy"]
 [ext_resource type="Texture2D" uid="uid://bty78ueb2110i" path="res://art/Gablo/IMG_0562 (1).png" id="4_h5glv"]
 [ext_resource type="Texture2D" uid="uid://drupk086fr1h5" path="res://art/Gablo/IMG_0566.PNG" id="5_fuy48"]
 [ext_resource type="PackedScene" uid="uid://bn5suoqmd3w1j" path="res://Scenes/enemy2.tscn" id="6_d0ylw"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jxkt5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_iw0sa")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_x3s37"]
 animations = [{
@@ -19,11 +31,11 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_jxkt5"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_a8x4f"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("2_iw0sa")
+"texture": ExtResource("3_bnycy")
 }],
 "loop": true,
 "name": &"default",
@@ -56,26 +68,22 @@ position = Vector2(174, 441)
 scale = Vector2(3.6, 3.823)
 texture = ExtResource("1_edi45")
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(5601, 803)
-scale = Vector2(0.457851, 0.413778)
-sprite_frames = SubResource("SpriteFrames_x3s37")
-
-[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(6171, 801)
-scale = Vector2(0.457851, 0.413778)
-sprite_frames = SubResource("SpriteFrames_x3s37")
-
-[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2(4835, 797)
-scale = Vector2(0.457851, 0.413778)
-sprite_frames = SubResource("SpriteFrames_x3s37")
-
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
 position = Vector2(2787, 688)
 rotation = 0.696386
 scale = Vector2(0.730231, 0.584)
 sprite_frames = SubResource("SpriteFrames_jxkt5")
+frame_progress = 0.358464
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+position = Vector2(6267, 801)
+scale = Vector2(0.457851, 0.413778)
+sprite_frames = SubResource("SpriteFrames_x3s37")
+
+[node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+position = Vector2(4503.97, 471.797)
+scale = Vector2(0.112125, 0.114552)
+sprite_frames = SubResource("SpriteFrames_a8x4f")
 
 [node name="tilesLevel2" parent="." instance=ExtResource("2_6cfwf")]
 position = Vector2(-45, -196)
