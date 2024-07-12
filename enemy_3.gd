@@ -28,3 +28,9 @@ func is_player_in_line_of_sight():
 
 func _on_area_2d_body_entered(body):
 	can_attack = true
+	
+
+
+
+func _on_area_2d_body_exited(body):
+	can_attack = false
