@@ -2,7 +2,7 @@
 
 [ext_resource type="AudioStream" uid="uid://ki6scmlv146n" path="res://art/Gablo/d3b3-1330-4c0e-9583-56950e35fd61.wav" id="1_3pxap"]
 [ext_resource type="Texture2D" uid="uid://cjorfd3skener" path="res://art/Gablo/soy (1).png" id="1_qejtq"]
-[ext_resource type="Texture2D" uid="uid://xu4tdxelvwb8" path="res://art/Gablo/trhobinrob.png" id="2_5juor"]
+[ext_resource type="Texture2D" uid="uid://6ce7u081obki" path="res://art/Gablo/trhobinrob.png" id="2_5juor"]
 
 [node name="Node2D" type="Node2D"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://de233bnov4x8x"]
+[gd_scene load_steps=49 format=3 uid="uid://de233bnov4x8x"]
 
 [ext_resource type="Texture2D" uid="uid://ccbjq14tldsgy" path="res://art/Treasure Hunters/Palm Tree Island/Sprites/Background/BG Image.png" id="1_8qoxh"]
 [ext_resource type="Texture2D" uid="uid://d0mgeb6oya76c" path="res://art/Gablo/moregrumpysback.png" id="2_3e8la"]
@@ -33,6 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://d3xjk2lct7mwn" path="res://art/Gablo/mr hands.png" id="31_yxwlr"]
 [ext_resource type="Texture2D" uid="uid://fmhpmyjkv5eq" path="res://art/Gablo/IMG_0562 (1) (2).png" id="32_nw3bu"]
 [ext_resource type="Texture2D" uid="uid://p5jpn0a66ksl" path="res://art/Gablo/phillipfile.png" id="33_iba11"]
+[ext_resource type="Texture2D" uid="uid://pscbk0k4d4rd" path="res://art/Gablo/New Piskel (2).png" id="34_2mrva"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_m66b3"]
 animations = [{
@@ -399,6 +400,11 @@ position = Vector2(3393, 695)
 rotation = -0.331613
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("4_7d6ox")
+
+[node name="Sprite2D6" type="Sprite2D" parent="ParallaxBackground/PalmTrees"]
+position = Vector2(344, 393)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_2mrva")
 
 [node name="Tree3" type="Sprite2D" parent="ParallaxBackground/PalmTrees"]
 texture_filter = 1
