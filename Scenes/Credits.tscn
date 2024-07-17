@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://cc4w81gix3u53"]
+[gd_scene load_steps=5 format=3 uid="uid://cc4w81gix3u53"]
 
+[ext_resource type="Script" path="res://Scenes/Credits.gd" id="1_2km5b"]
 [ext_resource type="AudioStream" uid="uid://ki6scmlv146n" path="res://art/Gablo/d3b3-1330-4c0e-9583-56950e35fd61.wav" id="1_3pxap"]
 [ext_resource type="Texture2D" uid="uid://cjorfd3skener" path="res://art/Gablo/soy (1).png" id="1_qejtq"]
 [ext_resource type="Texture2D" uid="uid://6ce7u081obki" path="res://art/Gablo/trhobinrob.png" id="2_5juor"]
 
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_2km5b")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 1152.0

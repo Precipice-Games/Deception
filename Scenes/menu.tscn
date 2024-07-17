@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dnsb4kg8f3eqa"]
+[gd_scene load_steps=8 format=3 uid="uid://dnsb4kg8f3eqa"]
 
 [ext_resource type="Script" path="res://Menu.gd" id="1_rqdgn"]
 [ext_resource type="Texture2D" uid="uid://tde651r21dsn" path="res://art/Gablo/IMG_0570.png" id="2_mr5yj"]
+[ext_resource type="Script" path="res://Scenes/CreditsButton.gd" id="3_gf101"]
 [ext_resource type="Texture2D" uid="uid://bkmmi8lgtkahy" path="res://art/Gablo/girl.png" id="3_j76ia"]
 [ext_resource type="Texture2D" uid="uid://ddnmv5ak40pq2" path="res://art/Gablo/coolll.png" id="4_fwnr3"]
 [ext_resource type="Texture2D" uid="uid://cujagd0kgelni" path="res://art/Gablo/IMG_0571.png" id="5_24lnc"]
@@ -56,6 +57,7 @@ text = "Start!"
 [node name="CreditsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 text = "Credits"
+script = ExtResource("3_gf101")
 
 [node name="QuitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
