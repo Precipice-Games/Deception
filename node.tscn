@@ -25,20 +25,21 @@ text = "                  The Story!"
 vertical_alignment = 1
 
 [node name="Label2" type="Label" parent="."]
-offset_left = 10.0
-offset_top = 163.0
-offset_right = 1151.0
+offset_left = 6.0
+offset_top = 156.0
+offset_right = 1159.0
 offset_bottom = 633.0
 theme_override_font_sizes/font_size = 20
-text = "You are Gablo, he is a blue critter dude. His job is to keep the earth spinning. After working for 3700 years 
-consecutively Gablo is tired and wants to take his two sick days provided by his company every 100 years. 
-His boss is not happy to find Gablo chilling in the Bahamas instead of 
-being at work to keep the earth spinning on the y axis. Without him keeping the flat earth spinning reality 
-begins to crumble. The boss gives Gablo two days to get back to work and if he can't make
- it back in time Gablo will be fired. Gablo hurries back to work but finds himself in a predicament. 
-While Gablo ventures back to work he meets his perfect girl Mimzy. 
-She is a lazy, laid back loser. But despite this Gablo is envious of her low intensity laid back life, compared to 
-his high intensity high stress life. Gablo must decide what is more important, saving the world or being happy. 
+text = "You are Gablo, he is a blue critter dude. His job is to keep the market good for his bro, (Insert Boss name). After 
+working for like ever, 
+Gablo is tired and wants to take his vacation days on a very tropical island.
+  On the way he meets someone he likes(note to remove: Mimsey) . (reveal in game how he gets distracted by Mimsey).
+  He only has 2 days for vacation.
+
+
+  Don't forget work and make your boss mad.  He's always been a weird guy...(hinting corruption power he has).
+
+(Remove stuff with () and fix formatting)
 "
 
 [node name="Button" type="Button" parent="."]

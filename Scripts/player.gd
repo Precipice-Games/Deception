@@ -1,9 +1,9 @@
 #Might add: slide speed if there 
-#is time.  More importantly, fix bugs in current stuff.  After dash, doesn't set speed to sprint when hits ground, 
+#is time.  More importantly, fix bugs in current stuff. Fix cloud movement when player moves bug. Fading between screens like Menu and Credits or Menu and Story then starting the game.  After dash, doesn't set speed to sprint when hits ground, 
 #you don't slow down transitioning from dash to sprint when you hit ground.  Also dash not stoping after .2 seconds.  
 #Sprint: Stop delay in speed boost after double tap, 
 #immediately goes to speed acceloration.  Add momentum in air/ground too.  Make speed slow down/accelarate more smoothly, movement in general.  
-#Dash: Horizontal travel same distance every time you air dash.
+#Dash: Horizontal travel same distance every time you air dash.  Could add pause menu, quit returns to Menu. Fix moving tommorow, use chatGPT for help.
 extends CharacterBody2D
 
 
@@ -16,14 +16,22 @@ var canDash= true
 var isrunning = false
 var direction = 0
 var fall = 1000
+var target_position = Vector2()
+
 
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var sprint = false
 
+func _ready():
+	target_position = position  # Initialize target position
+
 func _physics_process(delta):
-	
+	# Smoothly move towards the target position
+	var direction_dash = (target_position - position).normalized()
+	velocity.x = direction_dash.x * sprintSPEED	
+
 	if global_position.y > fall:
 		print(global_position.y, " ", fall)
 		game_over()
@@ -32,14 +40,15 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("dash") and not is_on_floor() and Input.is_action_pressed("move_right") and canDash==true:
 		$AnimatedSprite2D.play("punch")
-		position.x += 75
+		target_position.x += 75
 		canDash=false
 		$canDashTimer.start(1)
 	if Input.is_action_pressed("dash") and not is_on_floor() and Input.is_action_pressed("move_left") and canDash==true:
 		$AnimatedSprite2D.play("punch")
-		position.x -= 75
+		target_position.x -= 75
 		canDash=false
 		$canDashTimer.start(1)
+
 
 	# Add the gravity.
 	var facing_direction = 0
