@@ -62,6 +62,7 @@ func _input(event):
 	
 	
 	if event.is_action_pressed("move_left"):
+		print("move left")
 		direction = -1
 		isrunning = true
 		$AnimatedSprite2D.flip_h = true
@@ -69,6 +70,7 @@ func _input(event):
 		
 		
 	if event.is_action_pressed("move_right"):
+		print("move right")
 		direction = 1
 		$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play("runbig")
@@ -84,6 +86,7 @@ func _input(event):
 	
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
+		print("jump")
 		velocity.y = JUMP_VELOCITY
 		$AnimatedSprite2D.play("Jump3")
 		$JumpTimer.start()
