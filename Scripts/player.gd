@@ -66,12 +66,51 @@ func handle_input(delta):
 		isrunning = true
 		$AnimatedSprite2D.flip_h = true
 		$AnimatedSprite2D.play("runbig")
+		if Input.is_action_pressed("shift") and is_on_floor():
+			isrunning = true
+			$AnimatedSprite2D.flip_h = true
+			$AnimatedSprite2D.play("runbig")
+			if $GameTimer.is_stopped():
+				#print("one press")
+				$GameTimer.start()
+				print("got here4")
+			else:
+				print("dash")
+				sprint = true
+				$GameTimer.stop()
+				$sprintTimer.start(15)
+				print("got here5")
+				SPEED=sprintSPEED
+				if !Input.is_action_pressed("move_left") or $sprintTimer.is_stopped():
+					SPEED = walkSPEED
+					print("got here6")
+					$directionSprintTimer.start(.75)	
 
 	elif Input.is_action_pressed("move_right"):
 		direction = 1
 		$AnimatedSprite2D.flip_h = false
 		$AnimatedSprite2D.play("runbig")
 		isrunning = true
+		if Input.is_action_pressed("shift") and is_on_floor():
+			$AnimatedSprite2D.flip_h = false
+			$AnimatedSprite2D.play("runbig")
+			isrunning = true
+			print("got here1")
+			if $GameTimer.is_stopped():
+				print("one press")
+				$GameTimer.start()
+			else:
+				print("sprint")
+				sprint = true
+				$GameTimer.stop()
+				$sprintTimer.start(15)
+				print("got here2")
+				#could make getting tired of running, starts walking(15s)
+				SPEED=sprintSPEED
+			if !Input.is_action_pressed("move_right") or $sprintTimer.is_stopped():
+				SPEED = walkSPEED
+				print("got here3")
+
 
 	else:
 		direction = 0
