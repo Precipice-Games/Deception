@@ -663,6 +663,7 @@ limit_top = 115
 limit_bottom = 150
 
 [node name="canDashTimer" type="Timer" parent="."]
+wait_time = 0.5
 
 [node name="DamageDetector" type="Area2D" parent="."]
 collision_layer = 2

@@ -37,8 +37,6 @@ func _physics_process(delta):
 		dash_timer -= delta
 		if dash_timer <= 0:
 			dashing = false
-			canDash = false
-			$canDashTimer.start()  # Start cooldown timer
 		else:
 			# Ensure horizontal travel same distance every time
 			if direction != 0:
@@ -53,9 +51,13 @@ func _physics_process(delta):
 			velocity.x = move_toward(velocity.x, 0, SPEED * 5 * delta)
 
 	# Check if character lands on the ground
-	if is_on_floor() and not dashing:
+	if is_on_floor():
 		SPEED = sprintSPEED if sprint else walkSPEED  # Reset speed to sprint or walk when lands on the ground
-		SPEED = sprintSPEED if currently_sprinting else walkSPEED		
+		SPEED = sprintSPEED if currently_sprinting else walkSPEED
+		if not dashing:
+			canDash = true  # Allow dashing again when the player is on the floor
+			$canDashTimer.stop()  # Stop the cooldown timer when on the ground
+
 	move_and_slide()
 
 	# Handle input for direction and movement
@@ -70,12 +72,11 @@ func handle_input(delta):
 		if Input.is_action_pressed("shift") and is_on_floor():
 			SPEED = sprintSPEED
 			currently_sprinting = true
-			if Input.is_action_just_pressed("jump") and currently_sprinting==true:
+			if Input.is_action_just_pressed("jump") and currently_sprinting == true:
 				SPEED = sprintSPEED
 		if not Input.is_action_pressed("shift") and is_on_floor():
 			SPEED = walkSPEED
 			currently_sprinting = false
-
 
 	elif Input.is_action_pressed("move_right"):
 		direction = 1
@@ -85,7 +86,7 @@ func handle_input(delta):
 		if Input.is_action_pressed("shift") and is_on_floor():
 			SPEED = sprintSPEED
 			currently_sprinting = true
-			if Input.is_action_just_pressed("jump") and currently_sprinting==true:
+			if Input.is_action_just_pressed("jump") and currently_sprinting == true:
 				SPEED = sprintSPEED
 		if not Input.is_action_pressed("shift") and is_on_floor():
 			SPEED = walkSPEED
@@ -104,21 +105,21 @@ func handle_input(delta):
 		$AnimatedSprite2D.play("Jump3")
 		$JumpTimer.start()
 
-	# Handle dashing, working on this
-	if Input.is_action_just_pressed("dash") and not is_on_floor() and canDash:
-		if Input.is_action_just_pressed("move_right"):
-			#input not getting through, fix
+	# Handle dashing
+	if Input.is_action_pressed("move_right") or Input.is_action_pressed("move_left"):
+		if is_on_floor():
+			canDash=false
+		if Input.is_action_just_pressed("dash") and canDash:
 			start_dash()
-			print("SSBH")
-		if Input.is_action_just_pressed("move_left"):
-			#input not getting through, fix
-			start_dash()
-			
+			if is_on_floor():
+				$canDashTimer.stop()	
 
 func start_dash():
 	dashing = true
 	dash_timer = dash_duration
 	velocity.x = (dash_distance / dash_duration) * (1 if direction >= 0 else -1)  # Set dash velocity
+	canDash = false
+	$canDashTimer.start()  # Start cooldown timer
 
 func game_over():
 	get_tree().reload_current_scene()
