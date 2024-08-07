@@ -14,6 +14,7 @@ var direction = 0
 var fall = 1000
 var target_position = Vector2()
 var dash_timer = 0.0
+var currently_sprinting = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -54,7 +55,9 @@ func _physics_process(delta):
 	# Check if character lands on the ground
 	if is_on_floor() and not dashing:
 		SPEED = sprintSPEED if sprint else walkSPEED  # Reset speed to sprint or walk when lands on the ground
-
+		if sprint==true:
+			SPEED = sprintSPEED if currently_sprinting else walkSPEED
+			#2 lines above need to be fixed to fix sprint
 	move_and_slide()
 
 	# Handle input for direction and movement
@@ -68,10 +71,13 @@ func handle_input(delta):
 		$AnimatedSprite2D.play("runbig")
 		if Input.is_action_pressed("shift") and is_on_floor():
 			SPEED = sprintSPEED
-		if Input.is_action_just_pressed("jump") and SPEED==sprintSPEED:
-			SPEED = sprintSPEED
+			currently_sprinting = true
+			if Input.is_action_just_pressed("jump") and currently_sprinting==true:
+				SPEED = sprintSPEED
 		if not Input.is_action_pressed("shift") and is_on_floor():
 			SPEED = walkSPEED
+			currently_sprinting = false
+
 
 	elif Input.is_action_pressed("move_right"):
 		direction = 1
@@ -80,12 +86,12 @@ func handle_input(delta):
 		isrunning = true
 		if Input.is_action_pressed("shift") and is_on_floor():
 			SPEED = sprintSPEED
-			print("here1")
-		if Input.is_action_just_pressed("jump") and SPEED==sprintSPEED:
-			SPEED = sprintSPEED
-			print("here2")
+			currently_sprinting = true
+			if Input.is_action_just_pressed("jump") and currently_sprinting==true:
+				SPEED = sprintSPEED
 		if not Input.is_action_pressed("shift") and is_on_floor():
 			SPEED = walkSPEED
+			currently_sprinting = false
 	else:
 		direction = 0
 		if not dashing:
