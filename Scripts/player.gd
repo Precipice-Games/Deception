@@ -55,9 +55,7 @@ func _physics_process(delta):
 	# Check if character lands on the ground
 	if is_on_floor() and not dashing:
 		SPEED = sprintSPEED if sprint else walkSPEED  # Reset speed to sprint or walk when lands on the ground
-		if sprint==true:
-			SPEED = sprintSPEED if currently_sprinting else walkSPEED
-			#2 lines above need to be fixed to fix sprint
+		SPEED = sprintSPEED if currently_sprinting else walkSPEED		
 	move_and_slide()
 
 	# Handle input for direction and movement
@@ -106,9 +104,16 @@ func handle_input(delta):
 		$AnimatedSprite2D.play("Jump3")
 		$JumpTimer.start()
 
-	# Handle dashing
+	# Handle dashing, working on this
 	if Input.is_action_just_pressed("dash") and not is_on_floor() and canDash:
-		start_dash()
+		if Input.is_action_just_pressed("move_right"):
+			#input not getting through, fix
+			start_dash()
+			print("SSBH")
+		if Input.is_action_just_pressed("move_left"):
+			#input not getting through, fix
+			start_dash()
+			
 
 func start_dash():
 	dashing = true
