@@ -463,6 +463,10 @@ position = Vector2(8511, 582)
 texture_filter = 1
 position = Vector2(122, 425)
 
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+limit_top = 115
+limit_bottom = 150
+
 [node name="Top Tree(last so it\'s on top)" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(1612.23, 362.188)
@@ -499,7 +503,7 @@ scale = Vector2(5.09538, 4.90625)
 sprite_frames = SubResource("SpriteFrames_bu701")
 autoplay = "default"
 
-[node name="eee" type="AnimatedSprite2D" parent="."]
+[node name="Tree part" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(2406, 943)
 scale = Vector2(17, 17)

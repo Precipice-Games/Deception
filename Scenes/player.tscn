@@ -657,11 +657,6 @@ scale = Vector2(0.0497092, 0.0588644)
 sprite_frames = SubResource("SpriteFrames_hgi01")
 animation = &"idle3"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-scale = Vector2(1, 1.01317)
-limit_top = 115
-limit_bottom = 150
-
 [node name="canDashTimer" type="Timer" parent="."]
 wait_time = 0.5
 

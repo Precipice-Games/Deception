@@ -198,3 +198,7 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("16_tw1b3")
 
 [node name="Player" parent="." instance=ExtResource("15_t1pam")]
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+limit_top = 105
+limit_bottom = 1000
