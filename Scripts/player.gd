@@ -25,8 +25,6 @@ func _ready():
 	target_position = position  # Initialize target position
 
 func _physics_process(delta):
-	if locked == true:
-		return
 	if global_position.y > fall:
 		print(global_position.y, " ", fall)
 		game_over()
@@ -34,6 +32,7 @@ func _physics_process(delta):
 	# Apply gravity
 	if not is_on_floor():
 		velocity.y += gravity * delta
+
 
 	# Handle dashing
 	if dashing:
@@ -63,8 +62,14 @@ func _physics_process(delta):
 
 	move_and_slide()
 
+#Locked movement
+	if locked == true:
+		print("locked")
+		return
 	# Handle input for direction and movement
 	handle_input(delta)
+
+
 
 func handle_input(delta):
 	if Input.is_action_pressed("move_left"):
@@ -152,6 +157,8 @@ func _on_goal_body_entered(body):
 
 func _on_unlock_control_body_entered(body):
 	locked=false
+	print("unlocked")
 
 func _on_lock_controls_body_entered(body):
 	locked = true
+	print("LOCKED")

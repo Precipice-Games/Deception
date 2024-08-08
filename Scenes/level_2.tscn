@@ -61,10 +61,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lmrna"]
-size = Vector2(20, 8.5)
+size = Vector2(20, 9.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_e15fu"]
-size = Vector2(30.8, 20)
+size = Vector2(30.8, 7)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vif0b"]
 size = Vector2(118, 126)
@@ -189,7 +189,7 @@ position = Vector2(408, -28)
 scale = Vector2(2.5, 2)
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Unlock controls"]
-position = Vector2(-92.4, 339.25)
+position = Vector2(-92.4, 338.75)
 shape = SubResource("RectangleShape2D_lmrna")
 
 [node name="Lock controls" type="Area2D" parent="."]
@@ -197,7 +197,7 @@ position = Vector2(177, 650.5)
 scale = Vector2(2.5, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lock controls"]
-position = Vector2(0.6, -307.25)
+position = Vector2(0.600006, -313.75)
 shape = SubResource("RectangleShape2D_e15fu")
 
 [node name="Goal" type="Area2D" parent="."]
