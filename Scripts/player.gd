@@ -15,6 +15,7 @@ var fall = 1000
 var target_position = Vector2()
 var dash_timer = 0.0
 var currently_sprinting = false
+var locked = false
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -24,6 +25,8 @@ func _ready():
 	target_position = position  # Initialize target position
 
 func _physics_process(delta):
+	if locked == true:
+		return
 	if global_position.y > fall:
 		print(global_position.y, " ", fall)
 		game_over()
@@ -141,3 +144,14 @@ func _on_jump_timer_timeout():
 
 func _on_area_2d_body_entered(body):
 	get_tree().change_scene_to_file("res://Scenes/level_2.tscn")
+
+
+func _on_goal_body_entered(body):
+	get_tree().change_scene_to_file("res://Scenes/Credits.tscn")
+
+
+func _on_unlock_control_body_entered(body):
+	locked=false
+
+func _on_lock_controls_body_entered(body):
+	locked = true

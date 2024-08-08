@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://khddxe551qkj"]
+[gd_scene load_steps=23 format=3 uid="uid://khddxe551qkj"]
 
 [ext_resource type="Texture2D" uid="uid://ba8ooa5tw57hm" path="res://art/Gablo/Forest Concept.png" id="1_edi45"]
 [ext_resource type="PackedScene" uid="uid://dtv28yytj8ggf" path="res://tiles_level_2.tscn" id="2_6cfwf"]
@@ -59,6 +59,12 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lmrna"]
+size = Vector2(20, 8.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e15fu"]
+size = Vector2(30.8, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vif0b"]
 size = Vector2(118, 126)
@@ -178,16 +184,32 @@ position = Vector2(1807, 248)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("13_ai5se")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Unlock controls" type="Area2D" parent="."]
+position = Vector2(408, -28)
+scale = Vector2(2.5, 2)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Unlock controls"]
+position = Vector2(-92.4, 339.25)
+shape = SubResource("RectangleShape2D_lmrna")
+
+[node name="Lock controls" type="Area2D" parent="."]
+position = Vector2(177, 650.5)
+scale = Vector2(2.5, 2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lock controls"]
+position = Vector2(0.6, -307.25)
+shape = SubResource("RectangleShape2D_e15fu")
+
+[node name="Goal" type="Area2D" parent="."]
 position = Vector2(12195, 691)
 collision_mask = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+[node name="Sprite2D" type="Sprite2D" parent="Goal"]
 position = Vector2(714, -36)
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("14_0ss27")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Goal"]
 position = Vector2(739, -27)
 shape = SubResource("RectangleShape2D_vif0b")
 
@@ -202,3 +224,7 @@ texture = ExtResource("16_tw1b3")
 [node name="Camera2D" type="Camera2D" parent="Player"]
 limit_top = 105
 limit_bottom = 1000
+
+[connection signal="body_entered" from="Unlock controls" to="Player" method="_on_unlock_control_body_entered"]
+[connection signal="body_entered" from="Lock controls" to="Player" method="_on_lock_controls_body_entered"]
+[connection signal="body_entered" from="Goal" to="Player" method="_on_goal_body_entered"]
